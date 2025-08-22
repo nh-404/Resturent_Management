@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GourmetHub - Restaurant Management System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1a56db',
+                        secondary: '#0e9f6e',
+                        accent: '#9c19e0',
+                        dark: '#1f2937',
+                        light: '#f9fafb',
+                        customer: '#dc2626',
+                        customerSecondary: '#ea580c',
+                        customerAccent: '#eab308'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .menu-item-card:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+        }
+        .dashboard-card:hover {
+            transform: translateY(-3px);
+            transition: transform 0.2s ease;
+        }
+        .active-tab {
+            border-bottom: 3px solid #1a56db;
+            font-weight: bold;
+        }
+        #admin-section, #customer-section {
+            display: none;
+        }
+        #admin-section.active, #customer-section.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Navigation Tabs -->
+    <div class="fixed top-0 w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-center">
+                <a href="{% url 'dashboard_home' %}" id="admin-tab" class="px-6 py-4 text-lg font-medium active-tab">Admin Panel</a>
+                <a href="{% url 'home' %}" id="customer-tab" class="px-6 py-4 text-lg font-medium text-gray-600">Customer View</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Section -->
+    <div id="admin-section" class="active pt-16">
+        <div class="flex h-screen">
+            <!-- Sidebar -->
+            <div class="w-64 bg-dark text-white fixed h-full">
+                <div class="p-4 border-b border-gray-700">
+                    <h1 class="text-xl font-bold">GourmetHub</h1>
+                    <p class="text-sm text-gray-400">Restaurant Management</p>
+                </div>
+                <nav class="p-4">
+                    <ul>
+                        <li class="mb-2">
+                            <a href="#" class="flex items-center p-2 rounded-lg bg-primary">
+                                <i class="fas fa-chart-pie mr-3"></i>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-800">
+                                <i class="fas fa-utensils mr-3"></i>
+                                Menu
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-800">
+                                <i class="fas fa-receipt mr-3"></i>
+                                Orders
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-800">
+                                <i class="fas fa-users mr-3"></i>
+                                Staff
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-800">
+                                <i class="fas fa-table mr-3"></i>
+                                Tables
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-800">
+                                <i class="fas fa-chart-bar mr-3"></i>
+                                Reports
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-800">
+                                <i class="fas fa-cog mr-3"></i>
+                                Settings
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+{% block dashboard %}{% endblock dashboard %}
+        
+    </div>
+
+    <script>
+        // Tab switching functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const adminTab = document.getElementById('admin-tab');
+            const customerTab = document.getElementById('customer-tab');
+            const adminSection = document.getElementById('admin-section');
+            const customerSection = document.getElementById('customer-section');
+            
+            adminTab.addEventListener('click', function() {
+                adminSection.classList.add('active');
+                customerSection.classList.remove('active');
+                adminTab.classList.add('active-tab');
+                customerTab.classList.remove('active-tab');
+            });
+            
+            customerTab.addEventListener('click', function() {
+                customerSection.classList.add('active');
+                adminSection.classList.remove('active');
+                customerTab.classList.add('active-tab');
+                adminTab.classList.remove('active-tab');
+            });
+            
+            // Add to cart buttons
+            const addToCartButtons = document.querySelectorAll('.bg-customer');
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    alert('Item added to cart!');
+                });
+            });
+            
+            // Table booking form
+            const bookingForm = document.querySelector('form');
+            if (bookingForm) {
+                bookingForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Table booking request submitted!');
+                });
+            }
+            
+            // Table status click handler
+            const tables = document.querySelectorAll('.bg-green-100, .bg-red-100, .bg-yellow-100');
+            tables.forEach(table => {
+                table.addEventListener('click', function() {
+                    const status = this.querySelector('p:last-child').textContent;
+                    alert(`Table ${this.querySelector('p:first-child').textContent} is currently ${status}`);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

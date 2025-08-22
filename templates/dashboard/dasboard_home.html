@@ -1,0 +1,240 @@
+{% extends 'base/dashboard.html' %}
+
+
+{% block dashboard %}       
+
+
+<!-- Main Content -->
+        <div class="flex-1 overflow-auto">
+            <!-- Header -->
+            <header class="bg-white shadow-sm p-4 flex justify-between items-center">
+                <h2 class="text-xl font-semibold">Dashboard</h2>
+                <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <input type="text" placeholder="Search..." class="border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary">
+                        <i class="fas fa-search absolute right-3 top-3 text-gray-400"></i>
+                    </div>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="User" class="w-10 h-10 rounded-full">
+                        <span class="ml-2">Admin</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <main class="p-6">
+                <!-- Stats Overview -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <p class="text-gray-500">Total Orders</p>
+                                <h3 class="text-2xl font-bold">248</h3>
+                            </div>
+                            <div class="bg-blue-100 p-3 rounded-full">
+                                <i class="fas fa-receipt text-primary text-xl"></i>
+                            </div>
+                        </div>
+                        <p class="text-green-600 text-sm mt-2"><i class="fas fa-arrow-up"></i> 12% from yesterday</p>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <p class="text-gray-500">Available Tables</p>
+                                <h3 class="text-2xl font-bold">8/20</h3>
+                            </div>
+                            <div class="bg-green-100 p-3 rounded-full">
+                                <i class="fas fa-table text-secondary text-xl"></i>
+                            </div>
+                        </div>
+                        <p class="text-red-600 text-sm mt-2"><i class="fas fa-arrow-down"></i> 3 occupied recently</p>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <p class="text-gray-500">Today's Revenue</p>
+                                <h3 class="text-2xl font-bold">$3,248</h3>
+                            </div>
+                            <div class="bg-purple-100 p-3 rounded-full">
+                                <i class="fas fa-dollar-sign text-accent text-xl"></i>
+                            </div>
+                        </div>
+                        <p class="text-green-600 text-sm mt-2"><i class="fas fa-arrow-up"></i> 8% from yesterday</p>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <p class="text-gray-500">Staff On Duty</p>
+                                <h3 class="text-2xl font-bold">5/8</h3>
+                            </div>
+                            <div class="bg-yellow-100 p-3 rounded-full">
+                                <i class="fas fa-users text-yellow-600 text-xl"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mt-2">2 waiters, 2 chefs, 1 manager</p>
+                    </div>
+                </div>
+
+                <!-- Recent Orders and Table Layout -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- Recent Orders -->
+                    <div class="bg-white rounded-lg shadow">
+                        <div class="p-4 border-b">
+                            <h3 class="text-lg font-semibold">Recent Orders</h3>
+                        </div>
+                        <div class="p-4">
+                            <div class="overflow-x-auto">
+                                <table class="w-full">
+                                    <thead>
+                                        <tr class="text-left text-gray-500">
+                                            <th class="pb-2">Order ID</th>
+                                            <th class="pb-2">Table</th>
+                                            <th class="pb-2">Amount</th>
+                                            <th class="pb-2">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="border-b">
+                                            <td class="py-3">#ORD-0019</td>
+                                            <td class="py-3">T-05</td>
+                                            <td class="py-3">$120.00</td>
+                                            <td class="py-3"><span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs">Completed</span></td>
+                                        </tr>
+                                        <tr class="border-b">
+                                            <td class="py-3">#ORD-0020</td>
+                                            <td class="py-3">T-12</td>
+                                            <td class="py-3">$85.50</td>
+                                            <td class="py-3"><span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs">Preparing</span></td>
+                                        </tr>
+                                        <tr class="border-b">
+                                            <td class="py-3">#ORD-0021</td>
+                                            <td class="py-3">T-03</td>
+                                            <td class="py-3">$210.75</td>
+                                            <td class="py-3"><span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs">Served</span></td>
+                                        </tr>
+                                        <tr class="border-b">
+                                            <td class="py-3">#ORD-0022</td>
+                                            <td class="py-3">T-08</td>
+                                            <td class="py-3">$56.00</td>
+                                            <td class="py-3"><span class="px-2 py-1 bg-purple-100 text-purple-800 rounded-full text-xs">Pending</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="py-3">#ORD-0023</td>
+                                            <td class="py-3">T-11</td>
+                                            <td class="py-3">$145.25</td>
+                                            <td class="py-3"><span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs">Preparing</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Table Layout -->
+                    <div class="bg-white rounded-lg shadow">
+                        <div class="p-4 border-b">
+                            <h3 class="text-lg font-semibold">Table Status</h3>
+                        </div>
+                        <div class="p-4">
+                            <div class="grid grid-cols-4 gap-4">
+                                <div class="bg-green-100 rounded-lg p-4 text-center">
+                                    <p class="font-semibold">T-01</p>
+                                    <p class="text-sm text-green-700">Available</p>
+                                </div>
+                                <div class="bg-red-100 rounded-lg p-4 text-center">
+                                    <p class="font-semibold">T-02</p>
+                                    <p class="text-sm text-red-700">Occupied</p>
+                                </div>
+                                <div class="bg-green-100 rounded-lg p-4 text-center">
+                                    <p class="font-semibold">T-03</p>
+                                    <p class="text-sm text-green-700">Available</p>
+                                </div>
+                                <div class="bg-yellow-100 rounded-lg p-4 text-center">
+                                    <p class="font-semibold">T-04</p>
+                                    <p class="text-sm text-yellow-700">Reserved</p>
+                                </div>
+                                <div class="bg-red-100 rounded-lg p-4 text-center">
+                                    <p class="font-semibold">T-05</p>
+                                    <p class="text-sm text-red-700">Occupied</p>
+                                </div>
+                                <div class="bg-green-100 rounded-lg p-4 text-center">
+                                    <p class="font-semibold">T-06</p>
+                                    <p class="text-sm text-green-700">Available</p>
+                                </div>
+                                <div class="bg-red-100 rounded-lg p-4 text-center">
+                                    <p class="font-semibold">T-07</p>
+                                    <p class="text-sm text-red-700">Occupied</p>
+                                </div>
+                                <div class="bg-yellow-100 rounded-lg p-4 text-center">
+                                    <p class="font-semibold">T-08</p>
+                                    <p class="text-sm text-yellow-700">Reserved</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Menu Management -->
+                <div class="bg-white rounded-lg shadow mt-6">
+                    <div class="p-4 border-b flex justify-between items-center">
+                        <h3 class="text-lg font-semibold">Menu Management</h3>
+                        <button class="bg-primary text-white px-4 py-2 rounded-lg">Add Item</button>
+                    </div>
+                    <div class="p-4">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="border rounded-lg p-4">
+                                <img src="https://via.placeholder.com/300x200/f3f4f6/000000?text=Food+Item" alt="Menu Item" class="rounded-lg mb-3">
+                                <div class="flex justify-between items-center">
+                                    <h4 class="font-semibold">Grilled Salmon</h4>
+                                    <span class="text-primary font-bold">$24.99</span>
+                                </div>
+                                <p class="text-gray-500 text-sm mt-2">Fresh salmon with herbs and lemon</p>
+                                <div class="flex justify-between items-center mt-4">
+                                    <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs">Available</span>
+                                    <div class="flex space-x-2">
+                                        <button class="text-blue-500"><i class="fas fa-edit"></i></button>
+                                        <button class="text-red-500"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="border rounded-lg p-4">
+                                <img src="https://via.placeholder.com/300x200/f3f4f6/000000?text=Food+Item" alt="Menu Item" class="rounded-lg mb-3">
+                                <div class="flex justify-between items-center">
+                                    <h4 class="font-semibold">Beef Burger</h4>
+                                    <span class="text-primary font-bold">$16.99</span>
+                                </div>
+                                <p class="text-gray-500 text-sm mt-2">Angus beef with cheese and veggies</p>
+                                <div class="flex justify-between items-center mt-4">
+                                    <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs">Available</span>
+                                    <div class="flex space-x-2">
+                                        <button class="text-blue-500"><i class="fas fa-edit"></i></button>
+                                        <button class="text-red-500"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="border rounded-lg p-4">
+                                <img src="https://via.placeholder.com/300x200/f3f4f6/000000?text=Food+Item" alt="Menu Item" class="rounded-lg mb-3">
+                                <div class="flex justify-between items-center">
+                                    <h4 class="font-semibold">Vegetable Pizza</h4>
+                                    <span class="text-primary font-bold">$18.99</span>
+                                </div>
+                                <p class="text-gray-500 text-sm mt-2">Fresh vegetables with mozzarella</p>
+                                <div class="flex justify-between items-center mt-4">
+                                    <span class="px-2 py-1 bg-red-100 text-red-800 rounded-full text-xs">Out of Stock</span>
+                                    <div class="flex space-x-2">
+                                        <button class="text-blue-500"><i class="fas fa-edit"></i></button>
+                                        <button class="text-red-500"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+            {% endblock dashboard %}

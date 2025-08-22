@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="static/signup.css">
+  <title>SignUp</title>
+</head>
+
+<!-- __________________________________________________________________________ -->
+
+<body>
+  
+
+<div class="login-container">
+  
+  <h1>SignUp</h1>
+
+  <h4>{{ error1 }}</h4>
+
+  <form action="{% url 'signUp' %}" method="post">
+    {% csrf_token %}
+
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <!-- Uncomment this block if you need to add password confirmation
+    <label for="pass2">Re-Password:</label>
+    <input type="password" id="pass2" name="pass2" required>
+    -->
+
+    <button type="submit">Create</button>
+  </form>
+</div>
+
+
+</body>
+</html>

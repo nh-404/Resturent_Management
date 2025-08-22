@@ -1,0 +1,80 @@
+{% extends 'base/customer_ui.html' %}
+
+{% block content %}
+
+
+
+
+
+
+ <!-- Home Section -->
+    <section id="home" class="section active">
+        <!-- Hero Section -->
+        <div class="bg-gradient-to-r from-primary to-secondary text-white py-16">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Delicious Food, Delivered To Your Table</h2>
+                <p class="text-xl mb-8 max-w-2xl mx-auto">Experience the finest cuisine from the comfort of your home or visit us for a memorable dining experience</p>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="{% url 'book_table' %}" class="bg-white text-primary px-6 py-3 rounded-full font-bold hover:bg-gray-100">
+                        Order Online
+                    </a>
+                    <a href="{% url 'book_table' %}" class="bg-dark text-white px-6 py-3 rounded-full font-bold hover:bg-gray-800" data-target="reservation">
+                        Book a Table
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Main Content -->
+    <main class="content-wrapper py-12">
+        <div class="container mx-auto px-4">
+            
+            <!-- Featured Items -->
+            <h2 class="text-3xl font-bold text-white mb-8 text-center">Featured Menu Items</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <div class="card p-6 text-center">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2080&q=80" alt="Salad" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-bold text-white mb-2">Fresh Salad</h3>
+                    <p class="text-gray-300 mb-4">Crisp greens with our signature dressing</p>
+                    <span class="text-primary font-bold text-lg">$9.99</span>
+                </div>
+                
+                <div class="card p-6 text-center">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2081&q=80" alt="Pasta" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-bold text-white mb-2">Creamy Pasta</h3>
+                    <p class="text-gray-300 mb-4">Rich pasta with mushrooms and herbs</p>
+                    <span class="text-primary font-bold text-lg">$14.99</span>
+                </div>
+                
+                <div class="card p-6 text-center">
+                    <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1982&q=80" alt="Dessert" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-bold text-white mb-2">Chocolate Delight</h3>
+                    <p class="text-gray-300 mb-4">Decadent chocolate dessert</p>
+                    <span class="text-primary font-bold text-lg">$7.99</span>
+                </div>
+            </div>
+
+            <!-- Special Offers -->
+            <div class="card p-8 mb-12">
+                <h2 class="text-3xl font-bold text-white mb-4 text-center">Special Offers</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-gradient-to-r from-primary to-secondary p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-white mb-2">Family Dinner Package</h3>
+                        <p class="text-white mb-4">Enjoy a complete meal for 4 people at a special price</p>
+                        <span class="text-white font-bold text-lg">$49.99</span>
+                    </div>
+                    <div class="bg-gradient-to-r from-accent to-secondary p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-white mb-2">Weekend Brunch</h3>
+                        <p class="text-white mb-4">All-you-can-eat brunch every Saturday and Sunday</p>
+                        <span class="text-white font-bold text-lg">$24.99 per person</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+
+
+    {% endblock content %} 
