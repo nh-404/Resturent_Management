@@ -5,14 +5,43 @@
 <body class="bg-gray-50">
 
     <main class="container mx-auto px-4 py-8">
+        <!-- Offline Dining Header -->
+        <div class="text-center mb-8">
+            <div class="inline-flex items-center bg-green-100 text-green-800 px-4 py-2 rounded-full mb-4">
+                <i class="fas fa-store mr-2"></i>
+                <span class="font-semibold">Dine-In Experience</span>
+            </div>
+            <h1 class="text-4xl font-bold text-gray-800 mb-2">Welcome to Gourmet<span class="text-green-600">Hub</span></h1>
+            <p class="text-gray-600 max-w-2xl mx-auto">Scan the QR code or use the tablet to browse our menu and place your order</p>
+        </div>
+
         <div class="grid lg:grid-cols-3 gap-8">
             
             <!-- Left: Product Menu -->
             <section class="bg-white rounded-2xl shadow-lg p-6 lg:col-span-2">
+                <!-- Table Info Banner -->
+                <div class="bg-gradient-to-r from-green-500 to-green-600 rounded-xl p-4 mb-6 text-white">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-table"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg">Table #12</h3>
+                                <p class="text-green-100 text-sm">2 Guests • Smoking Area</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-sm">Server: <span class="font-bold">Maria</span></p>
+                            <p class="text-green-100 text-sm">Order ID: #ORD-7842</p>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-6">
                     <div>
-                        <h2 class="text-2xl font-bold text-gray-800">Our Menu</h2>
-                        <p class="text-gray-500 mt-1">Fresh ingredients, delicious meals</p>
+                        <h2 class="text-2xl font-bold text-gray-800">Restaurant Menu</h2>
+                        <p class="text-gray-500 mt-1">Fresh ingredients, prepared to order</p>
                     </div>
                     
                     <!-- Search Bar -->
@@ -32,23 +61,26 @@
                 <div class="flex overflow-x-auto pb-2 mb-6 scrollbar-thin">
                     <div class="flex space-x-3">
                         <button class="category-active px-4 py-2.5 rounded-full font-medium whitespace-nowrap transition-colors">All Items</button>
-                        <button class="bg-gray-100 px-4 py-2.5 rounded-full hover:bg-gray-200 transition-colors font-medium whitespace-nowrap">Main Course</button>
+                        <button class="bg-gray-100 px-4 py-2.5 rounded-full hover:bg-gray-200 transition-colors font-medium whitespace-nowrap">Chef's Specials</button>
                         <button class="bg-gray-100 px-4 py-2.5 rounded-full hover:bg-gray-200 transition-colors font-medium whitespace-nowrap">Appetizers</button>
-                        <button class="bg-gray-100 px-4 py-2.5 rounded-full hover:bg-gray-200 transition-colors font-medium whitespace-nowrap">Drinks</button>
+                        <button class="bg-gray-100 px-4 py-2.5 rounded-full hover:bg-gray-200 transition-colors font-medium whitespace-nowrap">Main Course</button>
                         <button class="bg-gray-100 px-4 py-2.5 rounded-full hover:bg-gray-200 transition-colors font-medium whitespace-nowrap">Desserts</button>
-                        <button class="bg-gray-100 px-4 py-2.5 rounded-full hover:bg-gray-200 transition-colors font-medium whitespace-nowrap">Specials</button>
+                        <button class="bg-gray-100 px-4 py-2.5 rounded-full hover:bg-gray-200 transition-colors font-medium whitespace-nowrap">Beverages</button>
                     </div>
                 </div>
 
-                <!-- Special Offer Banner -->
-                <div class="bg-gradient-to-r from-amber-500 to-amber-600 rounded-xl p-4 mb-6 text-white">
+                <!-- Today's Specials -->
+                <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-6">
                     <div class="flex items-center justify-between">
-                        <div>
-                            <h3 class="font-bold text-lg">Weekend Special!</h3>
-                            <p class="text-amber-100">Get 20% off on all main courses</p>
+                        <div class="flex items-center">
+                            <i class="fas fa-crown text-amber-500 text-xl mr-3"></i>
+                            <div>
+                                <h3 class="font-bold text-amber-800">Today's Specials</h3>
+                                <p class="text-amber-600 text-sm">Featured dishes prepared by our head chef</p>
+                            </div>
                         </div>
-                        <div class="bg-white text-amber-600 px-3 py-1 rounded-full font-bold">
-                            SAVE 20%
+                        <div class="bg-amber-500 text-white px-3 py-1 rounded-full text-sm font-bold">
+                            LIMITED
                         </div>
                     </div>
                 </div>
@@ -59,7 +91,7 @@
                     <div class="bg-white border border-gray-200 rounded-xl overflow-hidden card-hover fade-in">
                         <div class="relative">
                             <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" class="w-full h-40 object-cover" alt="Classic Burger">
-                            <span class="absolute top-3 right-3 bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Popular</span>
+                            <span class="absolute top-3 right-3 bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Chef's Pick</span>
                             <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3">
                                 <span class="text-white font-medium">৳ 250</span>
                             </div>
@@ -78,9 +110,9 @@
                                     <span class="ml-1 text-sm font-medium">4.8</span>
                                     <span class="text-gray-400 text-sm ml-1">(42)</span>
                                 </div>
-                                <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors font-medium flex items-center gap-2 pulse-animation">
-                                    <i class="fas fa-plus"></i>
-                                    Add
+                                <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors font-medium flex items-center gap-2">
+                                    <i class="fas fa-utensils"></i>
+                                    Order
                                 </button>
                             </div>
                         </div>
@@ -90,7 +122,7 @@
                     <div class="bg-white border border-gray-200 rounded-xl overflow-hidden card-hover fade-in">
                         <div class="relative">
                             <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" class="w-full h-40 object-cover" alt="Pepperoni Pizza">
-                            <span class="absolute top-3 right-3 bg-red-100 text-red-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Hot</span>
+                            <span class="absolute top-3 right-3 bg-red-100 text-red-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Popular</span>
                             <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3">
                                 <span class="text-white font-medium">৳ 480</span>
                             </div>
@@ -110,8 +142,8 @@
                                     <span class="text-gray-400 text-sm ml-1">(38)</span>
                                 </div>
                                 <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors font-medium flex items-center gap-2">
-                                    <i class="fas fa-plus"></i>
-                                    Add
+                                    <i class="fas fa-utensils"></i>
+                                    Order
                                 </button>
                             </div>
                         </div>
@@ -140,18 +172,19 @@
                                     <span class="text-gray-400 text-sm ml-1">(27)</span>
                                 </div>
                                 <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors font-medium flex items-center gap-2">
-                                    <i class="fas fa-plus"></i>
-                                    Add
+                                    <i class="fas fa-utensils"></i>
+                                    Order
                                 </button>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Load More Button -->
+                <!-- Call Waiter Button -->
                 <div class="mt-8 text-center">
-                    <button class="bg-white border border-gray-300 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-50 transition-colors font-medium">
-                        Load More Items
+                    <button class="bg-blue-600 text-white px-8 py-4 rounded-xl hover:bg-blue-700 transition-colors font-semibold flex items-center justify-center gap-3 mx-auto">
+                        <i class="fas fa-bell"></i>
+                        Call Waiter to Table
                     </button>
                 </div>
             </section>
@@ -160,16 +193,21 @@
             <aside class="sticky-cart">
                 <div class="bg-white rounded-2xl shadow-lg p-6 h-fit">
                     <div class="flex items-center justify-between mb-6">
-                        <h2 class="text-2xl font-bold text-gray-800">Your Order</h2>
+                        <h2 class="text-2xl font-bold text-gray-800">Current Order</h2>
                         <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">2 items</span>
                     </div>
 
-                    <!-- Empty State -->
-                    <!-- <div class="text-center py-10">
-                        <i class="fas fa-shopping-cart text-4xl text-gray-300 mb-4"></i>
-                        <h3 class="text-lg font-medium text-gray-500">Your cart is empty</h3>
-                        <p class="text-gray-400 mt-1">Add some delicious items from our menu</p>
-                    </div> -->
+                    <!-- Order Status -->
+                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <i class="fas fa-clock text-blue-500 mr-2"></i>
+                                <span class="font-semibold text-blue-800">Order Status</span>
+                            </div>
+                            <span class="bg-blue-500 text-white px-2 py-1 rounded-full text-xs font-bold">PREPARING</span>
+                        </div>
+                        <p class="text-blue-600 text-sm mt-2">Your order is being prepared by our kitchen staff</p>
+                    </div>
 
                     <!-- Order Items -->
                     <div class="space-y-4 mb-6 max-h-80 overflow-y-auto pr-2 scrollbar-thin">
@@ -182,21 +220,14 @@
                                 <div>
                                     <p class="font-semibold text-gray-800">Classic Burger</p>
                                     <div class="flex items-center mt-1">
-                                        <button class="w-6 h-6 rounded-full bg-gray-100 text-gray-500 hover:bg-gray-200 flex items-center justify-center">
-                                            <i class="fas fa-minus text-xs"></i>
-                                        </button>
-                                        <span class="mx-2 text-gray-700 font-medium">2</span>
-                                        <button class="w-6 h-6 rounded-full bg-gray-100 text-gray-500 hover:bg-gray-200 flex items-center justify-center">
-                                            <i class="fas fa-plus text-xs"></i>
-                                        </button>
+                                        <span class="text-gray-500 text-sm">Qty: 2</span>
+                                        <span class="mx-2 text-gray-300">•</span>
+                                        <span class="text-green-600 text-sm font-medium">Preparing</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="text-right">
                                 <p class="font-semibold text-gray-800">৳ 500</p>
-                                <button class="text-red-500 hover:text-red-700 text-sm mt-1">
-                                    <i class="fas fa-trash"></i>
-                                </button>
                             </div>
                         </div>
 
@@ -209,21 +240,14 @@
                                 <div>
                                     <p class="font-semibold text-gray-800">French Fries</p>
                                     <div class="flex items-center mt-1">
-                                        <button class="w-6 h-6 rounded-full bg-gray-100 text-gray-500 hover:bg-gray-200 flex items-center justify-center">
-                                            <i class="fas fa-minus text-xs"></i>
-                                        </button>
-                                        <span class="mx-2 text-gray-700 font-medium">1</span>
-                                        <button class="w-6 h-6 rounded-full bg-gray-100 text-gray-500 hover:bg-gray-200 flex items-center justify-center">
-                                            <i class="fas fa-plus text-xs"></i>
-                                        </button>
+                                        <span class="text-gray-500 text-sm">Qty: 1</span>
+                                        <span class="mx-2 text-gray-300">•</span>
+                                        <span class="text-green-600 text-sm font-medium">Preparing</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="text-right">
                                 <p class="font-semibold text-gray-800">৳ 120</p>
-                                <button class="text-red-500 hover:text-red-700 text-sm mt-1">
-                                    <i class="fas fa-trash"></i>
-                                </button>
                             </div>
                         </div>
                     </div>
@@ -254,98 +278,140 @@
                                 <span>Service Charge</span>
                                 <span>৳ 30</span>
                             </div>
-                            <div class="flex justify-between text-green-600 font-medium">
-                                <span>Discount</span>
-                                <span>-৳ 50</span>
-                            </div>
                         </div>
                         <div class="flex justify-between font-bold text-lg text-gray-900 border-t border-gray-200 pt-3">
                             <span>Total</span>
-                            <span>৳ 631</span>
-                        </div>
-                    </div>
-
-                    <!-- Promo Code -->
-                    <div class="mt-4">
-                        <div class="flex">
-                            <input 
-                                type="text" 
-                                placeholder="Promo code" 
-                                class="flex-1 px-3 py-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                            >
-                            <button class="bg-gray-800 text-white px-4 py-2 rounded-r-lg hover:bg-gray-900 transition-colors font-medium">
-                                Apply
-                            </button>
+                            <span>৳ 681</span>
                         </div>
                     </div>
 
                     <!-- Action Buttons -->
                     <div class="mt-6 space-y-3">
                         <button class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition-colors font-semibold flex items-center justify-center gap-2">
-                            <i class="fas fa-credit-card"></i>
-                            Checkout (৳ 631)
+                            <i class="fas fa-plus-circle"></i>
+                            Add More Items
+                        </button>
+                        <button class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors font-semibold flex items-center justify-center gap-2">
+                            <i class="fas fa-utensils"></i>
+                            Place Order
                         </button>
                         <button class="w-full bg-white border border-gray-300 text-gray-700 py-3 rounded-lg hover:bg-gray-50 transition-colors font-medium flex items-center justify-center gap-2">
-                            <i class="far fa-bookmark"></i>
-                            Save for Later
-                        </button>
-                        <button class="w-full bg-white border border-gray-300 text-gray-700 py-3 rounded-lg hover:bg-gray-50 transition-colors font-medium flex items-center justify-center gap-2">
-                            <i class="fas fa-share-alt"></i>
-                            Share Order
+                            <i class="fas fa-print"></i>
+                            Print Receipt
                         </button>
                     </div>
                 </div>
                 
-                <!-- Delivery Info -->
+                <!-- Restaurant Services -->
                 <div class="bg-white rounded-2xl shadow-lg p-6 mt-6">
-                    <h3 class="font-bold text-gray-800 mb-3">Delivery Information</h3>
-                    <div class="flex items-center text-gray-600 mb-2">
-                        <i class="fas fa-map-marker-alt text-green-600 mr-2"></i>
-                        <span>123 Food Street, Restaurant District</span>
+                    <h3 class="font-bold text-gray-800 mb-4">Restaurant Services</h3>
+                    <div class="space-y-3">
+                        <button class="w-full bg-gray-100 text-gray-700 py-3 rounded-lg hover:bg-gray-200 transition-colors font-medium flex items-center justify-center gap-2">
+                            <i class="fas fa-bell text-blue-500"></i>
+                            Call Waiter
+                        </button>
+                        <button class="w-full bg-gray-100 text-gray-700 py-3 rounded-lg hover:bg-gray-200 transition-colors font-medium flex items-center justify-center gap-2">
+                            <i class="fas fa-utensils text-green-500"></i>
+                            Request Bill
+                        </button>
+                        <button class="w-full bg-gray-100 text-gray-700 py-3 rounded-lg hover:bg-gray-200 transition-colors font-medium flex items-center justify-center gap-2">
+                            <i class="fas fa-wifi text-purple-500"></i>
+                            Get WiFi Password
+                        </button>
                     </div>
-                    <div class="flex items-center text-gray-600">
-                        <i class="fas fa-clock text-green-600 mr-2"></i>
-                        <span>Estimated delivery: 25-35 min</span>
+                </div>
+
+                <!-- Order Timeline -->
+                <div class="bg-white rounded-2xl shadow-lg p-6 mt-6">
+                    <h3 class="font-bold text-gray-800 mb-4">Order Timeline</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-check text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium text-gray-800">Order Placed</p>
+                                <p class="text-gray-500 text-sm">2:30 PM</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-check text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium text-gray-800">Order Confirmed</p>
+                                <p class="text-gray-500 text-sm">2:32 PM</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-utensils text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium text-gray-800">Preparing</p>
+                                <p class="text-gray-500 text-sm">Estimated: 15-20 min</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center opacity-50">
+                            <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-check text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium text-gray-800">Served</p>
+                                <p class="text-gray-500 text-sm">Pending</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </aside>
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8 mt-12">
-        <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-8">
-                <div>
-                    <h3 class="font-bold text-lg mb-4">Gourmet Express</h3>
-                    <p class="text-gray-400">Delicious meals delivered to your door in minutes.</p>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-4">Contact</h4>
-                    <p class="text-gray-400">+880 1234-567890</p>
-                    <p class="text-gray-400">info@gourmetexpress.com</p>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-4">Hours</h4>
-                    <p class="text-gray-400">Mon-Sun: 10:00 AM - 10:00 PM</p>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-4">Follow Us</h4>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400">
-                <p>&copy; 2023 Gourmet Express. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+    <style>
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .category-active {
+            background-color: #10b981;
+            color: white;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .sticky-cart {
+            position: sticky;
+            top: 1rem;
+        }
+        
+        .scrollbar-thin::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .scrollbar-thin::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        .scrollbar-thin::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 10px;
+        }
+    </style>
 
     <script>
-        // Simple interactivity for demonstration
         document.addEventListener('DOMContentLoaded', function() {
             // Category buttons
             const categoryButtons = document.querySelectorAll('.bg-gray-100');
@@ -361,41 +427,33 @@
                 });
             });
             
-            // Add to cart buttons
-            const addButtons = document.querySelectorAll('.bg-green-600');
-            addButtons.forEach(button => {
+            // Order buttons
+            const orderButtons = document.querySelectorAll('.bg-green-600');
+            orderButtons.forEach(button => {
                 button.addEventListener('click', function() {
                     // Simple animation feedback
                     const originalText = this.innerHTML;
-                    this.innerHTML = '<i class="fas fa-check"></i> Added';
-                    this.classList.remove('pulse-animation');
+                    this.innerHTML = '<i class="fas fa-check"></i> Ordered';
+                    this.classList.add('bg-green-700');
                     
                     setTimeout(() => {
                         this.innerHTML = originalText;
-                        // In a real app, you would update the cart count and items here
-                    }, 1500);
+                        this.classList.remove('bg-green-700');
+                    }, 2000);
                 });
             });
             
-            // Quantity buttons
-            const minusButtons = document.querySelectorAll('.fa-minus').forEach(button => {
-                button.closest('button').addEventListener('click', function() {
-                    const quantityElement = this.nextElementSibling;
-                    let quantity = parseInt(quantityElement.textContent);
-                    if (quantity > 1) {
-                        quantityElement.textContent = quantity - 1;
-                        // In a real app, you would update the cart total here
-                    }
-                });
-            });
-            
-            const plusButtons = document.querySelectorAll('.fa-plus').forEach(button => {
-                button.closest('button').addEventListener('click', function() {
-                    const quantityElement = this.previousElementSibling;
-                    let quantity = parseInt(quantityElement.textContent);
-                    quantityElement.textContent = quantity + 1;
-                    // In a real app, you would update the cart total here
-                });
+            // Call Waiter functionality
+            const callWaiterBtn = document.querySelector('.bg-blue-600');
+            callWaiterBtn.addEventListener('click', function() {
+                const originalText = this.innerHTML;
+                this.innerHTML = '<i class="fas fa-bell"></i> Waiter Notified';
+                this.classList.add('bg-blue-700');
+                
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                    this.classList.remove('bg-blue-700');
+                }, 3000);
             });
         });
     </script>
