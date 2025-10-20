@@ -1,4 +1,4 @@
-# 🍽️ GourmetHub - Django Restaurant Management System (Online + Offline Orders)
+# 🍽️ GourmetHub - Restaurant Management System (Online + Offline Orders)
 
 **GourmetHub** is a comprehensive restaurant management system designed to streamline operations for modern restaurants. It offers both **Online** Food Ordering and **Offline** POS (Point of Sale) Ordering functionalities within a single integrated platform, empowering restaurants to efficiently manage dine-in, takeaway, and delivery services with ease.
 
