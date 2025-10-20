@@ -25,6 +25,18 @@ def contact(request):
 
 
 
+def online_order(request):
+
+    return render(request, 'customer/order/online_order.html')
+
+
+
+def offline_order(request):
+
+    return render(request, 'customer/order/offline_order.html')
+
+
+
 def book_table(request):
 
-    return render(request, 'customer/book_table.html')
+    return render(request, 'customer/order/book_table.html')

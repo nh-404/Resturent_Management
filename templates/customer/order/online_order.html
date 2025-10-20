@@ -1,0 +1,403 @@
+{% extends 'base/customer_ui.html' %}
+
+{% block content %}
+
+<body class="bg-gray-50">
+
+    <main class="container mx-auto px-4 py-8">
+        <div class="grid lg:grid-cols-3 gap-8">
+            
+            <!-- Left: Product Menu -->
+            <section class="bg-white rounded-2xl shadow-lg p-6 lg:col-span-2">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-6">
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-800">Our Menu</h2>
+                        <p class="text-gray-500 mt-1">Fresh ingredients, delicious meals</p>
+                    </div>
+                    
+                    <!-- Search Bar -->
+                    <div class="mt-3 sm:mt-0 w-full sm:w-64">
+                        <div class="relative">
+                            <input 
+                                type="text" 
+                                placeholder="Search menu items..." 
+                                class="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                            >
+                            <i class="fas fa-search absolute left-3 top-3.5 text-gray-400"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category Filter -->
+                <div class="flex overflow-x-auto pb-2 mb-6 scrollbar-thin">
+                    <div class="flex space-x-3">
+                        <button class="category-active px-4 py-2.5 rounded-full font-medium whitespace-nowrap transition-colors">All Items</button>
+                        <button class="bg-gray-100 px-4 py-2.5 rounded-full hover:bg-gray-200 transition-colors font-medium whitespace-nowrap">Main Course</button>
+                        <button class="bg-gray-100 px-4 py-2.5 rounded-full hover:bg-gray-200 transition-colors font-medium whitespace-nowrap">Appetizers</button>
+                        <button class="bg-gray-100 px-4 py-2.5 rounded-full hover:bg-gray-200 transition-colors font-medium whitespace-nowrap">Drinks</button>
+                        <button class="bg-gray-100 px-4 py-2.5 rounded-full hover:bg-gray-200 transition-colors font-medium whitespace-nowrap">Desserts</button>
+                        <button class="bg-gray-100 px-4 py-2.5 rounded-full hover:bg-gray-200 transition-colors font-medium whitespace-nowrap">Specials</button>
+                    </div>
+                </div>
+
+                <!-- Special Offer Banner -->
+                <div class="bg-gradient-to-r from-amber-500 to-amber-600 rounded-xl p-4 mb-6 text-white">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="font-bold text-lg">Weekend Special!</h3>
+                            <p class="text-amber-100">Get 20% off on all main courses</p>
+                        </div>
+                        <div class="bg-white text-amber-600 px-3 py-1 rounded-full font-bold">
+                            SAVE 20%
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Grid -->
+                <div class="grid sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-5">
+                    <!-- Product Card 1 -->
+                    <div class="bg-white border border-gray-200 rounded-xl overflow-hidden card-hover fade-in">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" class="w-full h-40 object-cover" alt="Classic Burger">
+                            <span class="absolute top-3 right-3 bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Popular</span>
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3">
+                                <span class="text-white font-medium">৳ 250</span>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-gray-800">Classic Burger</h3>
+                                <button class="text-gray-400 hover:text-green-500">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                            <p class="text-gray-500 text-sm mb-4">Juicy beef patty with fresh lettuce, tomato, and our special sauce</p>
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center text-amber-500">
+                                    <i class="fas fa-star"></i>
+                                    <span class="ml-1 text-sm font-medium">4.8</span>
+                                    <span class="text-gray-400 text-sm ml-1">(42)</span>
+                                </div>
+                                <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors font-medium flex items-center gap-2 pulse-animation">
+                                    <i class="fas fa-plus"></i>
+                                    Add
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 2 -->
+                    <div class="bg-white border border-gray-200 rounded-xl overflow-hidden card-hover fade-in">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" class="w-full h-40 object-cover" alt="Pepperoni Pizza">
+                            <span class="absolute top-3 right-3 bg-red-100 text-red-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Hot</span>
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3">
+                                <span class="text-white font-medium">৳ 480</span>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-gray-800">Pepperoni Pizza</h3>
+                                <button class="text-gray-400 hover:text-green-500">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                            <p class="text-gray-500 text-sm mb-4">Classic pizza with mozzarella cheese and premium pepperoni slices</p>
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center text-amber-500">
+                                    <i class="fas fa-star"></i>
+                                    <span class="ml-1 text-sm font-medium">4.6</span>
+                                    <span class="text-gray-400 text-sm ml-1">(38)</span>
+                                </div>
+                                <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors font-medium flex items-center gap-2">
+                                    <i class="fas fa-plus"></i>
+                                    Add
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 3 -->
+                    <div class="bg-white border border-gray-200 rounded-xl overflow-hidden card-hover fade-in">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1542181961-9590d0c79dab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" class="w-full h-40 object-cover" alt="Cappuccino">
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3">
+                                <span class="text-white font-medium">৳ 180</span>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-gray-800">Cappuccino</h3>
+                                <button class="text-gray-400 hover:text-green-500">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                            <p class="text-gray-500 text-sm mb-4">Perfectly balanced espresso with steamed milk and a layer of foam</p>
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center text-amber-500">
+                                    <i class="fas fa-star"></i>
+                                    <span class="ml-1 text-sm font-medium">4.9</span>
+                                    <span class="text-gray-400 text-sm ml-1">(27)</span>
+                                </div>
+                                <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors font-medium flex items-center gap-2">
+                                    <i class="fas fa-plus"></i>
+                                    Add
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Load More Button -->
+                <div class="mt-8 text-center">
+                    <button class="bg-white border border-gray-300 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-50 transition-colors font-medium">
+                        Load More Items
+                    </button>
+                </div>
+            </section>
+
+            <!-- Right: Order Summary -->
+            <aside class="sticky-cart">
+                <div class="bg-white rounded-2xl shadow-lg p-6 h-fit">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-2xl font-bold text-gray-800">Your Order</h2>
+                        <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">2 items</span>
+                    </div>
+
+                    <!-- Empty State -->
+                    <!-- <div class="text-center py-10">
+                        <i class="fas fa-shopping-cart text-4xl text-gray-300 mb-4"></i>
+                        <h3 class="text-lg font-medium text-gray-500">Your cart is empty</h3>
+                        <p class="text-gray-400 mt-1">Add some delicious items from our menu</p>
+                    </div> -->
+
+                    <!-- Order Items -->
+                    <div class="space-y-4 mb-6 max-h-80 overflow-y-auto pr-2 scrollbar-thin">
+                        <!-- Order Item 1 -->
+                        <div class="flex items-center justify-between py-3 border-b border-gray-200 cart-item-enter">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 rounded-lg overflow-hidden mr-3 flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover" alt="Classic Burger">
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-800">Classic Burger</p>
+                                    <div class="flex items-center mt-1">
+                                        <button class="w-6 h-6 rounded-full bg-gray-100 text-gray-500 hover:bg-gray-200 flex items-center justify-center">
+                                            <i class="fas fa-minus text-xs"></i>
+                                        </button>
+                                        <span class="mx-2 text-gray-700 font-medium">2</span>
+                                        <button class="w-6 h-6 rounded-full bg-gray-100 text-gray-500 hover:bg-gray-200 flex items-center justify-center">
+                                            <i class="fas fa-plus text-xs"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <p class="font-semibold text-gray-800">৳ 500</p>
+                                <button class="text-red-500 hover:text-red-700 text-sm mt-1">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Order Item 2 -->
+                        <div class="flex items-center justify-between py-3 border-b border-gray-200 cart-item-enter">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 rounded-lg overflow-hidden mr-3 flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover" alt="French Fries">
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-800">French Fries</p>
+                                    <div class="flex items-center mt-1">
+                                        <button class="w-6 h-6 rounded-full bg-gray-100 text-gray-500 hover:bg-gray-200 flex items-center justify-center">
+                                            <i class="fas fa-minus text-xs"></i>
+                                        </button>
+                                        <span class="mx-2 text-gray-700 font-medium">1</span>
+                                        <button class="w-6 h-6 rounded-full bg-gray-100 text-gray-500 hover:bg-gray-200 flex items-center justify-center">
+                                            <i class="fas fa-plus text-xs"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <p class="font-semibold text-gray-800">৳ 120</p>
+                                <button class="text-red-500 hover:text-red-700 text-sm mt-1">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Special Instructions -->
+                    <div class="mb-6">
+                        <label for="instructions" class="block text-sm font-medium text-gray-700 mb-2">Special Instructions</label>
+                        <textarea 
+                            id="instructions" 
+                            rows="2" 
+                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent" 
+                            placeholder="Any special requests or dietary restrictions?"
+                        ></textarea>
+                    </div>
+
+                    <!-- Order Summary -->
+                    <div class="border-t border-gray-200 pt-4">
+                        <div class="space-y-2 mb-4">
+                            <div class="flex justify-between text-gray-700">
+                                <span>Subtotal</span>
+                                <span>৳ 620</span>
+                            </div>
+                            <div class="flex justify-between text-gray-700">
+                                <span>VAT (5%)</span>
+                                <span>৳ 31</span>
+                            </div>
+                            <div class="flex justify-between text-gray-700">
+                                <span>Service Charge</span>
+                                <span>৳ 30</span>
+                            </div>
+                            <div class="flex justify-between text-green-600 font-medium">
+                                <span>Discount</span>
+                                <span>-৳ 50</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between font-bold text-lg text-gray-900 border-t border-gray-200 pt-3">
+                            <span>Total</span>
+                            <span>৳ 631</span>
+                        </div>
+                    </div>
+
+                    <!-- Promo Code -->
+                    <div class="mt-4">
+                        <div class="flex">
+                            <input 
+                                type="text" 
+                                placeholder="Promo code" 
+                                class="flex-1 px-3 py-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                            >
+                            <button class="bg-gray-800 text-white px-4 py-2 rounded-r-lg hover:bg-gray-900 transition-colors font-medium">
+                                Apply
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="mt-6 space-y-3">
+                        <button class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition-colors font-semibold flex items-center justify-center gap-2">
+                            <i class="fas fa-credit-card"></i>
+                            Checkout (৳ 631)
+                        </button>
+                        <button class="w-full bg-white border border-gray-300 text-gray-700 py-3 rounded-lg hover:bg-gray-50 transition-colors font-medium flex items-center justify-center gap-2">
+                            <i class="far fa-bookmark"></i>
+                            Save for Later
+                        </button>
+                        <button class="w-full bg-white border border-gray-300 text-gray-700 py-3 rounded-lg hover:bg-gray-50 transition-colors font-medium flex items-center justify-center gap-2">
+                            <i class="fas fa-share-alt"></i>
+                            Share Order
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Delivery Info -->
+                <div class="bg-white rounded-2xl shadow-lg p-6 mt-6">
+                    <h3 class="font-bold text-gray-800 mb-3">Delivery Information</h3>
+                    <div class="flex items-center text-gray-600 mb-2">
+                        <i class="fas fa-map-marker-alt text-green-600 mr-2"></i>
+                        <span>123 Food Street, Restaurant District</span>
+                    </div>
+                    <div class="flex items-center text-gray-600">
+                        <i class="fas fa-clock text-green-600 mr-2"></i>
+                        <span>Estimated delivery: 25-35 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Gourmet Express</h3>
+                    <p class="text-gray-400">Delicious meals delivered to your door in minutes.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Contact</h4>
+                    <p class="text-gray-400">+880 1234-567890</p>
+                    <p class="text-gray-400">info@gourmetexpress.com</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Hours</h4>
+                    <p class="text-gray-400">Mon-Sun: 10:00 AM - 10:00 PM</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400">
+                <p>&copy; 2023 Gourmet Express. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple interactivity for demonstration
+        document.addEventListener('DOMContentLoaded', function() {
+            // Category buttons
+            const categoryButtons = document.querySelectorAll('.bg-gray-100');
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    document.querySelector('.category-active').classList.remove('category-active');
+                    document.querySelector('.category-active').classList.add('bg-gray-100', 'hover:bg-gray-200');
+                    
+                    // Add active class to clicked button
+                    this.classList.add('category-active');
+                    this.classList.remove('bg-gray-100', 'hover:bg-gray-200');
+                });
+            });
+            
+            // Add to cart buttons
+            const addButtons = document.querySelectorAll('.bg-green-600');
+            addButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Simple animation feedback
+                    const originalText = this.innerHTML;
+                    this.innerHTML = '<i class="fas fa-check"></i> Added';
+                    this.classList.remove('pulse-animation');
+                    
+                    setTimeout(() => {
+                        this.innerHTML = originalText;
+                        // In a real app, you would update the cart count and items here
+                    }, 1500);
+                });
+            });
+            
+            // Quantity buttons
+            const minusButtons = document.querySelectorAll('.fa-minus').forEach(button => {
+                button.closest('button').addEventListener('click', function() {
+                    const quantityElement = this.nextElementSibling;
+                    let quantity = parseInt(quantityElement.textContent);
+                    if (quantity > 1) {
+                        quantityElement.textContent = quantity - 1;
+                        // In a real app, you would update the cart total here
+                    }
+                });
+            });
+            
+            const plusButtons = document.querySelectorAll('.fa-plus').forEach(button => {
+                button.closest('button').addEventListener('click', function() {
+                    const quantityElement = this.previousElementSibling;
+                    let quantity = parseInt(quantityElement.textContent);
+                    quantityElement.textContent = quantity + 1;
+                    // In a real app, you would update the cart total here
+                });
+            });
+        });
+    </script>
+
+{% endblock content %}

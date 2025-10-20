@@ -1,0 +1,616 @@
+{% extends 'base/customer_ui.html' %}
+
+{% block content %}
+
+<!-- Reservation Section -->
+<section id="reservation" class="section">
+    <div class="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 py-12">
+        <!-- Header -->
+        <div class="text-center py-12 px-4">
+            <h2 class="text-4xl font-bold text-white mb-4">Reserve Your Table</h2>
+            <p class="text-blue-200 text-center mb-4 max-w-2xl mx-auto text-lg">
+                Experience culinary excellence in our intimate setting
+            </p>
+            <div class="flex justify-center items-center space-x-6 mt-6 text-blue-200">
+                <div class="flex items-center">
+                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                    <span>4.8 Rating</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-clock mr-2"></i>
+                    <span>Open until 11 PM</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-wifi mr-2"></i>
+                    <span>Free WiFi</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Reservation Form & Table Selection -->
+                <div class="lg:col-span-2">
+                    <div class="bg-gray-800 rounded-2xl shadow-xl p-8 text-white">
+                        <div class="flex items-center mb-6">
+                            <div class="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold">Table Reservation</h3>
+                        </div>
+                        
+                        <!-- Table Selection Section -->
+                        <div class="mb-8">
+                            <div class="flex justify-between items-center mb-4">
+                                <h4 class="text-lg font-semibold text-blue-200">Select Your Table</h4>
+                                <div class="flex space-x-2 text-sm">
+                                    <div class="flex items-center">
+                                        <div class="w-3 h-3 bg-green-500 rounded-full mr-1"></div>
+                                        <span>Available</span>
+                                    </div>
+                                    <div class="flex items-center ml-2">
+                                        <div class="w-3 h-3 bg-red-500 rounded-full mr-1"></div>
+                                        <span>Reserved</span>
+                                    </div>
+                                    <div class="flex items-center ml-2">
+                                        <div class="w-3 h-3 bg-yellow-500 rounded-full mr-1"></div>
+                                        <span>Selected</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Restaurant Layout Visualization -->
+                            <div class="bg-gray-900 rounded-xl p-6 mb-4">
+                                <div class="text-center mb-4">
+                                    <h5 class="font-medium text-blue-200">Main Dining Area</h5>
+                                    <p class="text-gray-400 text-sm">Window tables have a beautiful garden view</p>
+                                </div>
+                                
+                                <!-- Restaurant Layout -->
+                                <div class="relative bg-gray-800 rounded-lg p-6 min-h-[300px]">
+                                    <!-- Window Area -->
+                                    <div class="absolute top-4 left-0 right-0 h-12 bg-gradient-to-r from-blue-900/30 to-purple-900/30 border-b border-blue-700/50 flex justify-between px-8">
+                                        <div class="text-blue-300 text-xs flex items-center">
+                                            <i class="fas fa-window-maximize mr-1"></i> Garden View
+                                        </div>
+                                        <div class="text-blue-300 text-xs flex items-center">
+                                            Garden View <i class="fas fa-window-maximize ml-1"></i>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Tables Grid -->
+                                    <div class="grid grid-cols-4 gap-6 mt-16">
+                                        <!-- Table 1 (Window) -->
+                                        <div class="table-card bg-green-600/20 border-2 border-green-500" data-table="1" data-seats="2" data-location="window">
+                                            <div class="table-shape rounded-full w-16 h-16 bg-green-600/30 border-2 border-green-500 flex items-center justify-center mx-auto">
+                                                <span class="text-white font-bold">T1</span>
+                                            </div>
+                                            <div class="text-center mt-2">
+                                                <p class="text-xs text-green-300">2 Seats</p>
+                                                <p class="text-xs text-green-200">Window</p>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Table 2 (Window) -->
+                                        <div class="table-card bg-green-600/20 border-2 border-green-500" data-table="2" data-seats="4" data-location="window">
+                                            <div class="table-shape rounded-lg w-20 h-16 bg-green-600/30 border-2 border-green-500 flex items-center justify-center mx-auto">
+                                                <span class="text-white font-bold">T2</span>
+                                            </div>
+                                            <div class="text-center mt-2">
+                                                <p class="text-xs text-green-300">4 Seats</p>
+                                                <p class="text-xs text-green-200">Window</p>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Table 3 (Reserved) -->
+                                        <div class="table-card bg-red-600/20 border-2 border-red-500 opacity-70" data-table="3" data-seats="2" data-location="center">
+                                            <div class="table-shape rounded-full w-16 h-16 bg-red-600/30 border-2 border-red-500 flex items-center justify-center mx-auto">
+                                                <span class="text-white font-bold">T3</span>
+                                            </div>
+                                            <div class="text-center mt-2">
+                                                <p class="text-xs text-red-300">2 Seats</p>
+                                                <p class="text-xs text-red-200">Reserved</p>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Table 4 (Center) -->
+                                        <div class="table-card bg-green-600/20 border-2 border-green-500" data-table="4" data-seats="6" data-location="center">
+                                            <div class="table-shape rounded-lg w-24 h-16 bg-green-600/30 border-2 border-green-500 flex items-center justify-center mx-auto">
+                                                <span class="text-white font-bold">T4</span>
+                                            </div>
+                                            <div class="text-center mt-2">
+                                                <p class="text-xs text-green-300">6 Seats</p>
+                                                <p class="text-xs text-green-200">Center</p>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Table 5 (Private) -->
+                                        <div class="table-card bg-green-600/20 border-2 border-green-500" data-table="5" data-seats="4" data-location="private">
+                                            <div class="table-shape rounded-lg w-20 h-16 bg-green-600/30 border-2 border-green-500 flex items-center justify-center mx-auto">
+                                                <span class="text-white font-bold">T5</span>
+                                            </div>
+                                            <div class="text-center mt-2">
+                                                <p class="text-xs text-green-300">4 Seats</p>
+                                                <p class="text-xs text-green-200">Private</p>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Table 6 (Reserved) -->
+                                        <div class="table-card bg-red-600/20 border-2 border-red-500 opacity-70" data-table="6" data-seats="4" data-location="center">
+                                            <div class="table-shape rounded-full w-16 h-16 bg-red-600/30 border-2 border-red-500 flex items-center justify-center mx-auto">
+                                                <span class="text-white font-bold">T6</span>
+                                            </div>
+                                            <div class="text-center mt-2">
+                                                <p class="text-xs text-red-300">4 Seats</p>
+                                                <p class="text-xs text-red-200">Reserved</p>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Table 7 (Center) -->
+                                        <div class="table-card bg-green-600/20 border-2 border-green-500" data-table="7" data-seats="2" data-location="center">
+                                            <div class="table-shape rounded-full w-16 h-16 bg-green-600/30 border-2 border-green-500 flex items-center justify-center mx-auto">
+                                                <span class="text-white font-bold">T7</span>
+                                            </div>
+                                            <div class="text-center mt-2">
+                                                <p class="text-xs text-green-300">2 Seats</p>
+                                                <p class="text-xs text-green-200">Center</p>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Table 8 (Private) -->
+                                        <div class="table-card bg-green-600/20 border-2 border-green-500" data-table="8" data-seats="8" data-location="private">
+                                            <div class="table-shape rounded-lg w-28 h-16 bg-green-600/30 border-2 border-green-500 flex items-center justify-center mx-auto">
+                                                <span class="text-white font-bold">T8</span>
+                                            </div>
+                                            <div class="text-center mt-2">
+                                                <p class="text-xs text-green-300">8 Seats</p>
+                                                <p class="text-xs text-green-200">Private</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Restaurant Features -->
+                                    <div class="absolute bottom-4 left-4 text-xs text-gray-400">
+                                        <i class="fas fa-utensils mr-1"></i> Kitchen
+                                    </div>
+                                    <div class="absolute bottom-4 right-4 text-xs text-gray-400">
+                                        Entrance <i class="fas fa-door-open ml-1"></i>
+                                    </div>
+                                </div>
+                                
+                                <!-- Selected Table Info -->
+                                <div id="selectedTableInfo" class="bg-gray-700 rounded-lg p-4 mt-4 hidden">
+                                    <div class="flex justify-between items-center">
+                                        <div>
+                                            <h5 class="font-semibold text-yellow-400">Table <span id="selectedTableNumber">-</span> Selected</h5>
+                                            <p class="text-sm text-gray-300"><span id="selectedTableSeats">-</span> seats • <span id="selectedTableLocation">-</span> area</p>
+                                        </div>
+                                        <button id="changeTable" class="text-gray-400 hover:text-white text-sm">
+                                            Change Table
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <form id="reservationForm">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <!-- Name -->
+                                <div class="relative">
+                                    <label class="block text-blue-200 mb-2 font-medium">Full Name</label>
+                                    <div class="relative">
+                                        <input type="text" 
+                                               class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all" 
+                                               placeholder="Your Name"
+                                               required>
+                                        <i class="fas fa-user absolute right-3 top-3.5 text-gray-400"></i>
+                                    </div>
+                                    <span class="text-xs text-gray-400 mt-1">As it appears on your ID</span>
+                                </div>
+                                
+                                <!-- Email -->
+                                <div class="relative">
+                                    <label class="block text-blue-200 mb-2 font-medium">Email</label>
+                                    <div class="relative">
+                                        <input type="email" 
+                                               class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all" 
+                                               placeholder="your.email@example.com"
+                                               required>
+                                        <i class="fas fa-envelope absolute right-3 top-3.5 text-gray-400"></i>
+                                    </div>
+                                </div>
+                                
+                                <!-- Phone -->
+                                <div class="relative">
+                                    <label class="block text-blue-200 mb-2 font-medium">Phone Number</label>
+                                    <div class="relative">
+                                        <input type="tel" 
+                                               class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all" 
+                                               placeholder="+1 (555) 123-4567"
+                                               required>
+                                        <i class="fas fa-phone absolute right-3 top-3.5 text-gray-400"></i>
+                                    </div>
+                                </div>
+                                
+                                <!-- Guests -->
+                                <div>
+                                    <label class="block text-blue-200 mb-2 font-medium">Number of Guests</label>
+                                    <div class="relative">
+                                        <select id="guestCount" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent appearance-none transition-all">
+                                            <option value="" disabled selected>Select guests</option>
+                                            <option>1 person</option>
+                                            <option>2 people</option>
+                                            <option>3 people</option>
+                                            <option>4 people</option>
+                                            <option>5 people</option>
+                                            <option>6 people</option>
+                                            <option>7+ people (Please call)</option>
+                                        </select>
+                                        <i class="fas fa-chevron-down absolute right-3 top-3.5 text-gray-400 pointer-events-none"></i>
+                                    </div>
+                                </div>
+                                
+                                <!-- Date -->
+                                <div>
+                                    <label class="block text-blue-200 mb-2 font-medium">Reservation Date</label>
+                                    <div class="relative">
+                                        <input type="date" 
+                                               class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
+                                               required>
+                                        <i class="fas fa-calendar-day absolute right-3 top-3.5 text-gray-400"></i>
+                                    </div>
+                                </div>
+                                
+                                <!-- Time -->
+                                <div>
+                                    <label class="block text-blue-200 mb-2 font-medium">Preferred Time</label>
+                                    <div class="relative">
+                                        <select class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent appearance-none transition-all">
+                                            <option value="" disabled selected>Select time</option>
+                                            <optgroup label="Lunch">
+                                                <option>11:00 AM</option>
+                                                <option>11:30 AM</option>
+                                                <option>12:00 PM</option>
+                                                <option>12:30 PM</option>
+                                                <option>1:00 PM</option>
+                                                <option>1:30 PM</option>
+                                                <option>2:00 PM</option>
+                                            </optgroup>
+                                            <optgroup label="Dinner">
+                                                <option>5:00 PM</option>
+                                                <option>5:30 PM</option>
+                                                <option>6:00 PM</option>
+                                                <option>6:30 PM</option>
+                                                <option>7:00 PM</option>
+                                                <option>7:30 PM</option>
+                                                <option>8:00 PM</option>
+                                                <option>8:30 PM</option>
+                                                <option>9:00 PM</option>
+                                            </optgroup>
+                                        </select>
+                                        <i class="fas fa-clock absolute right-3 top-3.5 text-gray-400 pointer-events-none"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Special Requests -->
+                            <div class="mt-6">
+                                <label class="block text-blue-200 mb-2 font-medium">Special Requests</label>
+                                <textarea class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all" 
+                                          rows="4" 
+                                          placeholder="Any dietary restrictions, allergies, or special occasion notes?"></textarea>
+                            </div>
+                            
+                            <!-- Confirmation Options -->
+                            <div class="mt-6">
+                                <label class="flex items-center text-blue-200">
+                                    <input type="checkbox" class="rounded bg-gray-700 border-gray-600 text-green-500 focus:ring-green-500 mr-2">
+                                    <span>Send me confirmation via SMS</span>
+                                </label>
+                                <label class="flex items-center text-blue-200 mt-2">
+                                    <input type="checkbox" class="rounded bg-gray-700 border-gray-600 text-green-500 focus:ring-green-500 mr-2">
+                                    <span>Subscribe to our newsletter for special offers</span>
+                                </label>
+                            </div>
+                            
+                            <!-- Submit Button -->
+                            <div class="mt-8 text-center">
+                                <button type="submit" 
+                                        class="bg-gradient-to-r from-green-600 to-green-700 text-white px-10 py-4 rounded-xl hover:from-green-700 hover:to-green-800 font-bold transition-all transform hover:-translate-y-1 shadow-lg hover:shadow-xl flex items-center justify-center mx-auto">
+                                    <i class="fas fa-check-circle mr-2"></i>
+                                    Confirm Reservation
+                                </button>
+                                <p class="text-gray-400 text-sm mt-3">
+                                    You'll receive a confirmation email within 5 minutes
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Sidebar Information -->
+                <div class="space-y-6">
+                    <!-- Restaurant Info -->
+                    <div class="bg-gray-800 rounded-2xl shadow-xl p-6 text-white">
+                        <h3 class="text-xl font-bold mb-4 flex items-center">
+                            <i class="fas fa-info-circle text-green-500 mr-2"></i>
+                            Reservation Details
+                        </h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-clock text-green-500 mt-1 mr-3"></i>
+                                <div>
+                                    <span class="font-medium">Hours:</span>
+                                    <p class="text-blue-200 text-sm">Mon-Sun: 11:00 AM - 10:00 PM</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-users text-green-500 mt-1 mr-3"></i>
+                                <div>
+                                    <span class="font-medium">Group Size:</span>
+                                    <p class="text-blue-200 text-sm">Up to 6 guests online</p>
+                                    <p class="text-blue-200 text-sm">Larger groups? Call us</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-utensils text-green-500 mt-1 mr-3"></i>
+                                <div>
+                                    <span class="font-medium">Dining Time:</span>
+                                    <p class="text-blue-200 text-sm">2 hours allocated per reservation</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-exclamation-circle text-green-500 mt-1 mr-3"></i>
+                                <div>
+                                    <span class="font-medium">Cancellation Policy:</span>
+                                    <p class="text-blue-200 text-sm">Free cancellation up to 2 hours before</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Table Types Info -->
+                    <div class="bg-gray-800 rounded-2xl shadow-xl p-6 text-white">
+                        <h3 class="text-xl font-bold mb-4 flex items-center">
+                            <i class="fas fa-chair text-green-500 mr-2"></i>
+                            Table Types
+                        </h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-window-restore text-blue-400 mt-1 mr-3"></i>
+                                <div>
+                                    <span class="font-medium">Window Tables</span>
+                                    <p class="text-blue-200 text-sm">Beautiful garden view with natural light</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-couch text-purple-400 mt-1 mr-3"></i>
+                                <div>
+                                    <span class="font-medium">Private Booths</span>
+                                    <p class="text-blue-200 text-sm">Secluded areas for intimate dining</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-users text-amber-400 mt-1 mr-3"></i>
+                                <div>
+                                    <span class="font-medium">Center Tables</span>
+                                    <p class="text-blue-200 text-sm">Lively atmosphere in the heart of restaurant</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Special Offers -->
+                    <div class="bg-gradient-to-r from-green-700 to-green-800 rounded-2xl shadow-xl p-6 text-white">
+                        <h3 class="text-xl font-bold mb-3 flex items-center">
+                            <i class="fas fa-gift mr-2"></i>
+                            Special Offer
+                        </h3>
+                        <p class="mb-4">Book a table for 4+ people and get a complimentary dessert!</p>
+                        <div class="bg-green-600 inline-block px-3 py-1 rounded-full text-sm font-bold">
+                            USE CODE: SWEET4
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Info -->
+                    <div class="bg-gray-800 rounded-2xl shadow-xl p-6 text-white">
+                        <h3 class="text-xl font-bold mb-4 flex items-center">
+                            <i class="fas fa-phone-alt text-green-500 mr-2"></i>
+                            Need Help?
+                        </h3>
+                        <p class="text-blue-200 mb-3">Prefer to call us directly?</p>
+                        <div class="bg-gray-700 rounded-lg p-4">
+                            <p class="font-bold text-lg">(555) 123-4567</p>
+                            <p class="text-blue-200 text-sm">Our team is available 9 AM - 9 PM daily</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Success Modal (Hidden by default) -->
+<div id="successModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 hidden">
+    <div class="bg-gray-800 rounded-2xl p-8 max-w-md w-full mx-4 text-center text-white transform transition-all duration-500 scale-95 opacity-0">
+        <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-check text-white text-2xl"></i>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">Reservation Confirmed!</h3>
+        <p class="text-blue-200 mb-4">Your table has been successfully booked at <span id="confirmedTable" class="font-semibold text-yellow-400">Table -</span></p>
+        <p class="text-blue-200 text-sm mb-6">We've sent a confirmation to your email.</p>
+        <button id="closeModal" class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 font-medium transition">
+            Continue Browsing
+        </button>
+    </div>
+</div>
+
+<style>
+    /* Custom styles for enhanced UI */
+    input:focus, select:focus, textarea:focus {
+        transform: translateY(-2px);
+    }
+    
+    /* Table card styles */
+    .table-card {
+        border-radius: 12px;
+        padding: 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .table-card:not(.opacity-70):hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px rgba(34, 197, 94, 0.5);
+    }
+    
+    .table-card.selected {
+        background-color: rgba(234, 179, 8, 0.3) !important;
+        border-color: rgb(234, 179, 8) !important;
+        box-shadow: 0 0 15px rgba(234, 179, 8, 0.7);
+    }
+    
+    .table-shape {
+        transition: all 0.3s ease;
+    }
+    
+    /* Success modal animation */
+    .modal-show {
+        animation: modalAppear 0.5s ease-out forwards;
+    }
+    
+    @keyframes modalAppear {
+        to {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+    
+    /* Custom select arrow */
+    select {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+        background-position: right 0.5rem center;
+        background-repeat: no-repeat;
+        background-size: 1.5em 1.5em;
+        padding-right: 2.5rem;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('reservationForm');
+        const successModal = document.getElementById('successModal');
+        const closeModal = document.getElementById('closeModal');
+        const guestCountSelect = document.getElementById('guestCount');
+        const selectedTableInfo = document.getElementById('selectedTableInfo');
+        const selectedTableNumber = document.getElementById('selectedTableNumber');
+        const selectedTableSeats = document.getElementById('selectedTableSeats');
+        const selectedTableLocation = document.getElementById('selectedTableLocation');
+        const changeTableBtn = document.getElementById('changeTable');
+        const confirmedTable = document.getElementById('confirmedTable');
+        
+        let selectedTable = null;
+        
+        // Set minimum date to today
+        const dateInput = document.querySelector('input[type="date"]');
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.min = today;
+        
+        // Table selection functionality
+        const tableCards = document.querySelectorAll('.table-card:not(.opacity-70)');
+        tableCards.forEach(card => {
+            card.addEventListener('click', function() {
+                // Only allow selection of available tables
+                if (this.classList.contains('opacity-70')) return;
+                
+                // Deselect previously selected table
+                if (selectedTable) {
+                    selectedTable.classList.remove('selected');
+                    selectedTable.style.backgroundColor = '';
+                    selectedTable.style.borderColor = '';
+                }
+                
+                // Select new table
+                this.classList.add('selected');
+                selectedTable = this;
+                
+                // Update selected table info
+                const tableNumber = this.getAttribute('data-table');
+                const tableSeats = this.getAttribute('data-seats');
+                const tableLocation = this.getAttribute('data-location');
+                
+                selectedTableNumber.textContent = tableNumber;
+                selectedTableSeats.textContent = tableSeats;
+                selectedTableLocation.textContent = tableLocation;
+                
+                // Show selected table info
+                selectedTableInfo.classList.remove('hidden');
+                
+                // Auto-select guest count if not already selected
+                if (guestCountSelect.value === "") {
+                    guestCountSelect.value = `${tableSeats} people`;
+                }
+            });
+        });
+        
+        // Change table button
+        changeTableBtn.addEventListener('click', function() {
+            if (selectedTable) {
+                selectedTable.classList.remove('selected');
+                selectedTable = null;
+                selectedTableInfo.classList.add('hidden');
+            }
+        });
+        
+        // Form submission
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Check if a table is selected
+            if (!selectedTable) {
+                alert('Please select a table for your reservation.');
+                return;
+            }
+            
+            // Update confirmation modal with table info
+            confirmedTable.textContent = `Table ${selectedTableNumber.textContent}`;
+            
+            // Show success modal with animation
+            successModal.classList.remove('hidden');
+            setTimeout(() => {
+                successModal.querySelector('.bg-gray-800').classList.add('modal-show');
+            }, 10);
+        });
+        
+        // Close modal
+        closeModal.addEventListener('click', function() {
+            successModal.classList.add('hidden');
+            successModal.querySelector('.bg-gray-800').classList.remove('modal-show');
+        });
+        
+        // Close modal when clicking outside
+        successModal.addEventListener('click', function(e) {
+            if (e.target === successModal) {
+                successModal.classList.add('hidden');
+                successModal.querySelector('.bg-gray-800').classList.remove('modal-show');
+            }
+        });
+        
+        // Add visual feedback for form interactions
+        const inputs = form.querySelectorAll('input, select, textarea');
+        inputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.classList.add('ring-2', 'ring-green-500', 'rounded-lg');
+            });
+            
+            input.addEventListener('blur', function() {
+                this.parentElement.classList.remove('ring-2', 'ring-green-500', 'rounded-lg');
+            });
+        });
+    });
+</script>
+
+{% endblock content %}

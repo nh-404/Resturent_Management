@@ -1,438 +1,521 @@
 {% extends 'base/customer_ui.html' %}
 {% block content %}
 
-
+<div class="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
     <div class="container mx-auto px-4 py-8">
-        <!-- Header -->
+        <!-- Enhanced Header -->
         <header class="text-center mb-12">
-            <h1 class="text-4xl font-bold text-white mb-2">Gourmet<span class="text-primary">Hub</span> Menu</h1>
-            <p class="text-gray-400 max-w-2xl mx-auto">Discover our delicious offerings prepared with the freshest ingredients and traditional recipes</p>
+            <div class="inline-flex items-center bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-6 py-3 mb-4">
+                <span class="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
+                <span class="text-sm font-medium text-gray-300">Now Serving • Open until 11 PM</span>
+            </div>
+            <h1 class="text-5xl md:text-6xl font-bold text-white mb-4">
+                Gourmet<span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Hub</span> Menu
+            </h1>
+            <p class="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+                Discover our exquisite offerings crafted with passion, premium ingredients, and traditional recipes passed through generations
+            </p>
         </header>
 
-        <!-- Category Filters -->
-        <div class="flex flex-wrap justify-center gap-2 mb-8">
-            <button class="category-btn active px-4 py-2 rounded-full bg-primary text-white" data-category="all">
-                All Items
+        <!-- Enhanced Category Filters -->
+        <div class="flex flex-wrap justify-center gap-3 mb-12">
+            <button class="category-filter active px-6 py-3 rounded-2xl bg-gradient-to-r from-primary to-secondary text-white font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg" data-category="all">
+                <i class="fas fa-th-large mr-2"></i>All Items
             </button>
-            <button class="category-btn px-4 py-2 rounded-full bg-card text-gray-300 hover:bg-light" data-category="starters">
-                Starters
+            <button class="category-filter px-6 py-3 rounded-2xl bg-gray-800 text-gray-300 hover:bg-gray-700 font-semibold transition-all duration-300 transform hover:scale-105" data-category="starters">
+                <i class="fas fa-utensils mr-2"></i>Starters
             </button>
-            <button class="category-btn px-4 py-2 rounded-full bg-card text-gray-300 hover:bg-light" data-category="mains">
-                Main Courses
+            <button class="category-filter px-6 py-3 rounded-2xl bg-gray-800 text-gray-300 hover:bg-gray-700 font-semibold transition-all duration-300 transform hover:scale-105" data-category="mains">
+                <i class="fas fa-drumstick-bite mr-2"></i>Main Courses
             </button>
-            <button class="category-btn px-4 py-2 rounded-full bg-card text-gray-300 hover:bg-light" data-category="desserts">
-                Desserts
+            <button class="category-filter px-6 py-3 rounded-2xl bg-gray-800 text-gray-300 hover:bg-gray-700 font-semibold transition-all duration-300 transform hover:scale-105" data-category="desserts">
+                <i class="fas fa-ice-cream mr-2"></i>Desserts
             </button>
-            <button class="category-btn px-4 py-2 rounded-full bg-card text-gray-300 hover:bg-light" data-category="drinks">
-                Drinks
+            <button class="category-filter px-6 py-3 rounded-2xl bg-gray-800 text-gray-300 hover:bg-gray-700 font-semibold transition-all duration-300 transform hover:scale-105" data-category="drinks">
+                <i class="fas fa-glass-martini-alt mr-2"></i>Drinks
             </button>
         </div>
 
-        <!-- Search Box -->
-        <div class="max-w-md mx-auto mb-10">
-            <div class="relative">
-                <input type="text" placeholder="Search menu items..." class="w-full px-4 py-3 bg-card border border-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary pl-12 text-white placeholder-gray-400">
-                <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+        <!-- Enhanced Search Box -->
+        <div class="max-w-2xl mx-auto mb-12">
+            <div class="relative group">
+                <input type="text" 
+                       placeholder="Search for dishes, ingredients, or categories..." 
+                       class="w-full px-6 py-4 bg-gray-800 border-2 border-gray-700 rounded-2xl focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/20 pl-14 text-white placeholder-gray-400 text-lg transition-all duration-300 group-hover:border-gray-600">
+                <i class="fas fa-search absolute left-5 top-1/2 transform -translate-y-1/2 text-gray-400 text-xl group-hover:text-primary transition-colors"></i>
+                <div class="absolute right-4 top-1/2 transform -translate-y-1/2">
+                    <span class="text-xs text-gray-500 bg-gray-700 px-2 py-1 rounded">⌘K</span>
+                </div>
             </div>
         </div>
 
-        <!-- Menu Items List -->
-        <div class="max-w-4xl mx-auto bg-card rounded-lg shadow-lg overflow-hidden">
+        <!-- Menu Grid Layout -->
+        <div class="max-w-7xl mx-auto">
             <!-- Starters Category -->
-            <div class="category-section" data-category="starters">
-                <div class="bg-light px-6 py-3">
-                    <h2 class="text-xl font-bold text-primary"><i class="fas fa-utensils mr-2"></i>Starters & Appetizers</h2>
+            <div class="category-section mb-16" data-category="starters">
+                <div class="flex items-center justify-between mb-8">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-primary/20 rounded-2xl flex items-center justify-center mr-4">
+                            <i class="fas fa-utensils text-primary text-xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl font-bold text-white">Starters & Appetizers</h2>
+                            <p class="text-gray-400">Perfect beginnings to your culinary journey</p>
+                        </div>
+                    </div>
+                    <span class="text-primary font-bold text-lg bg-primary/10 px-4 py-2 rounded-full">3 Items</span>
                 </div>
-                <div class="divide-y divide-light">
-                    <!-- Item 1 -->
-                    <div class="menu-item px-6 py-5 flex justify-between items-start">
-                        <div class="flex-1">
-                            <div class="flex justify-between items-start">
-                                <h3 class="text-lg font-bold text-white">Garlic Bread</h3>
-                                <span class="price-tag font-bold text-white px-3 py-1 rounded-full">$5.99</span>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Starter 1 -->
+                    <div class="menu-card group bg-gray-800 rounded-3xl p-6 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+                        <div class="relative overflow-hidden rounded-2xl mb-4">
+                            <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80" 
+                                 alt="Garlic Bread" 
+                                 class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute top-3 right-3 bg-primary/90 text-white px-3 py-1 rounded-full text-sm font-bold backdrop-blur-sm">
+                                $5.99
                             </div>
-                            <p class="text-gray-400 text-sm mt-1">Freshly baked bread with garlic butter and herbs</p>
-                            <div class="flex items-center mt-2">
-                                <span class="bg-green-900 text-green-300 text-xs px-2 py-1 rounded">Vegetarian</span>
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-gray-900 to-transparent p-4">
+                                <div class="flex gap-2">
+                                    <span class="bg-green-900/80 text-green-300 text-xs px-2 py-1 rounded-full backdrop-blur-sm">Vegetarian</span>
+                                </div>
                             </div>
                         </div>
-                        <button class="add-btn ml-4 bg-primary text-white px-3 py-1 rounded-lg hover:bg-red-700">
-                            Add +
-                        </button>
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">Garlic Bread Supreme</h3>
+                        <p class="text-gray-400 text-sm mb-4 leading-relaxed">Freshly baked artisan bread infused with garlic butter, herbs, and parmesan cheese</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center text-amber-400">
+                                <i class="fas fa-star"></i>
+                                <span class="ml-1 font-semibold">4.5</span>
+                                <span class="text-gray-400 text-sm ml-1">(89)</span>
+                            </div>
+                            <button class="add-to-cart-btn bg-primary text-white px-4 py-2 rounded-xl hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 flex items-center gap-2">
+                                <i class="fas fa-plus"></i>
+                                Add to Cart
+                            </button>
+                        </div>
                     </div>
-                    
-                    <!-- Item 2 -->
-                    <div class="menu-item px-6 py-5 flex justify-between items-start">
-                        <div class="flex-1">
-                            <div class="flex justify-between items-start">
-                                <h3 class="text-lg font-bold text-white">Mozzarella Sticks</h3>
-                                <span class="price-tag font-bold text-white px-3 py-1 rounded-full">$7.99</span>
+
+                    <!-- Starter 2 -->
+                    <div class="menu-card group bg-gray-800 rounded-3xl p-6 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+                        <div class="relative overflow-hidden rounded-2xl mb-4">
+                            <img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" 
+                                 alt="Mozzarella Sticks" 
+                                 class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute top-3 right-3 bg-primary/90 text-white px-3 py-1 rounded-full text-sm font-bold backdrop-blur-sm">
+                                $7.99
                             </div>
-                            <p class="text-gray-400 text-sm mt-1">Crispy fried mozzarella served with marinara sauce</p>
-                            <div class="flex items-center mt-2">
-                                <span class="bg-green-900 text-green-300 text-xs px-2 py-1 rounded">Vegetarian</span>
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-gray-900 to-transparent p-4">
+                                <div class="flex gap-2">
+                                    <span class="bg-green-900/80 text-green-300 text-xs px-2 py-1 rounded-full backdrop-blur-sm">Vegetarian</span>
+                                </div>
                             </div>
                         </div>
-                        <button class="add-btn ml-4 bg-primary text-white px-3 py-1 rounded-lg hover:bg-red-700">
-                            Add +
-                        </button>
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">Crispy Mozzarella Sticks</h3>
+                        <p class="text-gray-400 text-sm mb-4 leading-relaxed">Golden fried mozzarella served with homemade marinara sauce and fresh basil</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center text-amber-400">
+                                <i class="fas fa-star"></i>
+                                <span class="ml-1 font-semibold">4.7</span>
+                                <span class="text-gray-400 text-sm ml-1">(124)</span>
+                            </div>
+                            <button class="add-to-cart-btn bg-primary text-white px-4 py-2 rounded-xl hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 flex items-center gap-2">
+                                <i class="fas fa-plus"></i>
+                                Add to Cart
+                            </button>
+                        </div>
                     </div>
-                    
-                    <!-- Item 3 -->
-                    <div class="menu-item px-6 py-5 flex justify-between items-start">
-                        <div class="flex-1">
-                            <div class="flex justify-between items-start">
-                                <h3 class="text-lg font-bold text-white">Chicken Wings</h3>
-                                <span class="price-tag font-bold text-white px-3 py-1 rounded-full">$9.99</span>
+
+                    <!-- Starter 3 -->
+                    <div class="menu-card group bg-gray-800 rounded-3xl p-6 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+                        <div class="relative overflow-hidden rounded-2xl mb-4">
+                            <img src="https://images.unsplash.com/photo-1567620832903-9fc6debc209f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1980&q=80" 
+                                 alt="Chicken Wings" 
+                                 class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute top-3 right-3 bg-primary/90 text-white px-3 py-1 rounded-full text-sm font-bold backdrop-blur-sm">
+                                $9.99
                             </div>
-                            <p class="text-gray-400 text-sm mt-1">Crispy chicken wings with your choice of sauce</p>
-                            <div class="flex items-center mt-2">
-                                <span class="bg-blue-900 text-blue-300 text-xs px-2 py-1 rounded">Spicy</span>
-                                <span class="bg-amber-900 text-amber-300 text-xs px-2 py-1 rounded ml-2">Popular</span>
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-gray-900 to-transparent p-4">
+                                <div class="flex gap-2">
+                                    <span class="bg-blue-900/80 text-blue-300 text-xs px-2 py-1 rounded-full backdrop-blur-sm">Spicy</span>
+                                    <span class="bg-amber-900/80 text-amber-300 text-xs px-2 py-1 rounded-full backdrop-blur-sm">Popular</span>
+                                </div>
                             </div>
                         </div>
-                        <button class="add-btn ml-4 bg-primary text-white px-3 py-1 rounded-lg hover:bg-red-700">
-                            Add +
-                        </button>
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">Signature Chicken Wings</h3>
+                        <p class="text-gray-400 text-sm mb-4 leading-relaxed">Crispy chicken wings tossed in your choice of buffalo, BBQ, or teriyaki glaze</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center text-amber-400">
+                                <i class="fas fa-star"></i>
+                                <span class="ml-1 font-semibold">4.8</span>
+                                <span class="text-gray-400 text-sm ml-1">(256)</span>
+                            </div>
+                            <button class="add-to-cart-btn bg-primary text-white px-4 py-2 rounded-xl hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 flex items-center gap-2">
+                                <i class="fas fa-plus"></i>
+                                Add to Cart
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Main Courses Category -->
-            <div class="category-section" data-category="mains">
-                <div class="bg-light px-6 py-3">
-                    <h2 class="text-xl font-bold text-primary"><i class="fas fa-drumstick-bite mr-2"></i>Main Courses</h2>
+            <div class="category-section mb-16" data-category="mains">
+                <div class="flex items-center justify-between mb-8">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-secondary/20 rounded-2xl flex items-center justify-center mr-4">
+                            <i class="fas fa-drumstick-bite text-secondary text-xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl font-bold text-white">Main Courses</h2>
+                            <p class="text-gray-400">Hearty dishes that satisfy every craving</p>
+                        </div>
+                    </div>
+                    <span class="text-secondary font-bold text-lg bg-secondary/10 px-4 py-2 rounded-full">4 Items</span>
                 </div>
-                <div class="divide-y divide-light">
-                    <!-- Item 1 -->
-                    <div class="menu-item px-6 py-5 flex justify-between items-start">
-                        <div class="flex-1">
-                            <div class="flex justify-between items-start">
-                                <h3 class="text-lg font-bold text-white">Grilled Salmon</h3>
-                                <span class="price-tag font-bold text-white px-3 py-1 rounded-full">$18.99</span>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+                    <!-- Main Course 1 -->
+                    <div class="menu-card group bg-gray-800 rounded-3xl p-6 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+                        <div class="relative overflow-hidden rounded-2xl mb-4">
+                            <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" 
+                                 alt="Grilled Salmon" 
+                                 class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute top-3 right-3 bg-primary/90 text-white px-3 py-1 rounded-full text-sm font-bold backdrop-blur-sm">
+                                $18.99
                             </div>
-                            <p class="text-gray-400 text-sm mt-1">Fresh salmon fillet with lemon butter sauce and seasonal vegetables</p>
-                            <div class="flex items-center mt-2">
-                                <span class="bg-purple-900 text-purple-300 text-xs px-2 py-1 rounded">Healthy</span>
-                                <span class="bg-amber-900 text-amber-300 text-xs px-2 py-1 rounded ml-2">Chef's Recommendation</span>
-                            </div>
-                        </div>
-                        <button class="add-btn ml-4 bg-primary text-white px-3 py-1 rounded-lg hover:bg-red-700">
-                            Add +
-                        </button>
-                    </div>
-                    
-                    <!-- Item 2 -->
-                    <div class="menu-item px-6 py-5 flex justify-between items-start">
-                        <div class="flex-1">
-                            <div class="flex justify-between items-start">
-                                <h3 class="text-lg font-bold text-white">Beef Burger</h3>
-                                <span class="price-tag font-bold text-white px-3 py-1 rounded-full">$12.99</span>
-                            </div>
-                            <p class="text-gray-400 text-sm mt-1">Angus beef patty with cheese, lettuce, tomato, and special sauce</p>
-                            <div class="flex items-center mt-2">
-                                <span class="bg-amber-900 text-amber-300 text-xs px-2 py-1 rounded">Popular</span>
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-gray-900 to-transparent p-4">
+                                <div class="flex gap-2">
+                                    <span class="bg-purple-900/80 text-purple-300 text-xs px-2 py-1 rounded-full backdrop-blur-sm">Healthy</span>
+                                    <span class="bg-amber-900/80 text-amber-300 text-xs px-2 py-1 rounded-full backdrop-blur-sm">Chef's Pick</span>
+                                </div>
                             </div>
                         </div>
-                        <button class="add-btn ml-4 bg-primary text-white px-3 py-1 rounded-lg hover:bg-red-700">
-                            Add +
-                        </button>
-                    </div>
-                    
-                    <!-- Item 3 -->
-                    <div class="menu-item px-6 py-5 flex justify-between items-start">
-                        <div class="flex-1">
-                            <div class="flex justify-between items-start">
-                                <h3 class="text-lg font-bold text-white">Vegetable Pasta</h3>
-                                <span class="price-tag font-bold text-white px-3 py-1 rounded-full">$14.99</span>
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">Atlantic Grilled Salmon</h3>
+                        <p class="text-gray-400 text-sm mb-4 leading-relaxed">Fresh salmon fillet with lemon butter sauce, roasted vegetables, and herb quinoa</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center text-amber-400">
+                                <i class="fas fa-star"></i>
+                                <span class="ml-1 font-semibold">4.9</span>
+                                <span class="text-gray-400 text-sm ml-1">(312)</span>
                             </div>
-                            <p class="text-gray-400 text-sm mt-1">Penne pasta with seasonal vegetables in a creamy sauce</p>
-                            <div class="flex items-center mt-2">
-                                <span class="bg-green-900 text-green-300 text-xs px-2 py-1 rounded">Vegetarian</span>
-                                <span class="bg-purple-900 text-purple-300 text-xs px-2 py-1 rounded ml-2">Healthy</span>
-                            </div>
+                            <button class="add-to-cart-btn bg-primary text-white px-4 py-2 rounded-xl hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 flex items-center gap-2">
+                                <i class="fas fa-plus"></i>
+                                Add to Cart
+                            </button>
                         </div>
-                        <button class="add-btn ml-4 bg-primary text-white px-3 py-1 rounded-lg hover:bg-red-700">
-                            Add +
-                        </button>
                     </div>
 
-                    <!-- Item 4 -->
-                    <div class="menu-item px-6 py-5 flex justify-between items-start">
-                        <div class="flex-1">
-                            <div class="flex justify-between items-start">
-                                <h3 class="text-lg font-bold text-white">Grilled Chicken</h3>
-                                <span class="price-tag font-bold text-white px-3 py-1 rounded-full">$16.99</span>
+                    <!-- Main Course 2 -->
+                    <div class="menu-card group bg-gray-800 rounded-3xl p-6 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+                        <div class="relative overflow-hidden rounded-2xl mb-4">
+                            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" 
+                                 alt="Beef Burger" 
+                                 class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute top-3 right-3 bg-primary/90 text-white px-3 py-1 rounded-full text-sm font-bold backdrop-blur-sm">
+                                $12.99
                             </div>
-                            <p class="text-gray-400 text-sm mt-1">Herb-marinated chicken breast with roasted potatoes</p>
-                            <div class="flex items-center mt-2">
-                                <span class="bg-purple-900 text-purple-300 text-xs px-2 py-1 rounded">Healthy</span>
-                            </div>
-                        </div>
-                        <button class="add-btn ml-4 bg-primary text-white px-3 py-1 rounded-lg hover:bg-red-700">
-                            Add +
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Desserts Category -->
-            <div class="category-section" data-category="desserts">
-                <div class="bg-light px-6 py-3">
-                    <h2 class="text-xl font-bold text-primary"><i class="fas fa-ice-cream mr-2"></i>Desserts</h2>
-                </div>
-                <div class="divide-y divide-light">
-                    <!-- Item 1 -->
-                    <div class="menu-item px-6 py-5 flex justify-between items-start">
-                        <div class="flex-1">
-                            <div class="flex justify-between items-start">
-                                <h3 class="text-lg font-bold text-white">Chocolate Cake</h3>
-                                <span class="price-tag font-bold text-white px-3 py-1 rounded-full">$7.99</span>
-                            </div>
-                            <p class="text-gray-400 text-sm mt-1">Rich chocolate cake with chocolate frosting</p>
-                            <div class="flex items-center mt-2">
-                                <span class="bg-green-900 text-green-300 text-xs px-2 py-1 rounded">Vegetarian</span>
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-gray-900 to-transparent p-4">
+                                <div class="flex gap-2">
+                                    <span class="bg-amber-900/80 text-amber-300 text-xs px-2 py-1 rounded-full backdrop-blur-sm">Popular</span>
+                                </div>
                             </div>
                         </div>
-                        <button class="add-btn ml-4 bg-primary text-white px-3 py-1 rounded-lg hover:bg-red-700">
-                            Add +
-                        </button>
-                    </div>
-                    
-                    <!-- Item 2 -->
-                    <div class="menu-item px-6 py-5 flex justify-between items-start">
-                        <div class="flex-1">
-                            <div class="flex justify-between items-start">
-                                <h3 class="text-lg font-bold text-white">Cheesecake</h3>
-                                <span class="price-tag font-bold text-white px-3 py-1 rounded-full">$8.99</span>
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">Gourmet Beef Burger</h3>
+                        <p class="text-gray-400 text-sm mb-4 leading-relaxed">Angus beef patty with aged cheddar, crispy bacon, lettuce, tomato, and secret sauce</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center text-amber-400">
+                                <i class="fas fa-star"></i>
+                                <span class="ml-1 font-semibold">4.8</span>
+                                <span class="text-gray-400 text-sm ml-1">(478)</span>
                             </div>
-                            <p class="text-gray-400 text-sm mt-1">New York style cheesecake with berry compote</p>
-                            <div class="flex items-center mt-2">
-                                <span class="bg-green-900 text-green-300 text-xs px-2 py-1 rounded">Vegetarian</span>
-                                <span class="bg-amber-900 text-amber-300 text-xs px-2 py-1 rounded ml-2">Popular</span>
-                            </div>
+                            <button class="add-to-cart-btn bg-primary text-white px-4 py-2 rounded-xl hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 flex items-center gap-2">
+                                <i class="fas fa-plus"></i>
+                                Add to Cart
+                            </button>
                         </div>
-                        <button class="add-btn ml-4 bg-primary text-white px-3 py-1 rounded-lg hover:bg-red-700">
-                            Add +
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Drinks Category -->
-            <div class="category-section" data-category="drinks">
-                <div class="bg-light px-6 py-3">
-                    <h2 class="text-xl font-bold text-primary"><i class="fas fa-glass-martini-alt mr-2"></i>Drinks & Beverages</h2>
-                </div>
-                <div class="divide-y divide-light">
-                    <!-- Item 1 -->
-                    <div class="menu-item px-6 py-5 flex justify-between items-start">
-                        <div class="flex-1">
-                            <div class="flex justify-between items-start">
-                                <h3 class="text-lg font-bold text-white">Fresh Lemonade</h3>
-                                <span class="price-tag font-bold text-white px-3 py-1 rounded-full">$4.99</span>
-                            </div>
-                            <p class="text-gray-400 text-sm mt-1">Freshly squeezed lemons with a hint of mint</p>
-                            <div class="flex items-center mt-2">
-                                <span class="bg-green-900 text-green-300 text-xs px-2 py-1 rounded">Vegetarian</span>
-                            </div>
-                        </div>
-                        <button class="add-btn ml-4 bg-primary text-white px-3 py-1 rounded-lg hover:bg-red-700">
-                            Add +
-                        </button>
-                    </div>
-                    
-                    <!-- Item 2 -->
-                    <div class="menu-item px-6 py-5 flex justify-between items-start">
-                        <div class="flex-1">
-                            <div class="flex justify-between items-start">
-                                <h3 class="text-lg font-bold text-white">Iced Coffee</h3>
-                                <span class="price-tag font-bold text-white px-3 py-1 rounded-full">$5.99</span>
-                            </div>
-                            <p class="text-gray-400 text-sm mt-1">Cold brew coffee with cream and custom sweetness</p>
-                            <div class="flex items-center mt-2">
-                                <span class="bg-green-900 text-green-300 text-xs px-2 py-1 rounded">Vegetarian</span>
-                            </div>
-                        </div>
-                        <button class="add-btn ml-4 bg-primary text-white px-3 py-1 rounded-lg hover:bg-red-700">
-                            Add +
-                        </button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Cart Summary -->
-        <div class="max-w-4xl mx-auto mt-8 bg-card rounded-lg shadow-lg p-6">
-            <h2 class="text-xl font-bold text-white mb-4"><i class="fas fa-shopping-cart mr-2 text-primary"></i>Your Order</h2>
-            <div class="border border-light rounded-lg divide-y divide-light">
-                <div class="p-4 flex justify-between items-center cart-item">
-                    <div>
-                        <h3 class="font-medium text-white">Grilled Salmon</h3>
-                        <p class="text-sm text-gray-400">Main Course</p>
-                    </div>
-                    <div class="flex items-center">
-                        <button class="w-6 h-6 bg-light text-white rounded-full">-</button>
-                        <span class="mx-2 text-white">1</span>
-                        <button class="w-6 h-6 bg-light text-white rounded-full">+</button>
-                        <span class="ml-4 font-medium text-primary">$18.99</span>
-                    </div>
+        <!-- Floating Cart Button -->
+        <div class="fixed bottom-6 right-6 z-40">
+            <button id="cart-toggle" class="bg-gradient-to-r from-primary to-secondary text-white p-4 rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-110 group">
+                <div class="relative">
+                    <i class="fas fa-shopping-cart text-xl"></i>
+                    <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center font-bold cart-count">2</span>
                 </div>
-                <div class="p-4 flex justify-between items-center cart-item">
-                    <div>
-                        <h3 class="font-medium text-white">Garlic Bread</h3>
-                        <p class="text-sm text-gray-400">Starter</p>
-                    </div>
-                    <div class="flex items-center">
-                        <button class="w-6 h-6 bg-light text-white rounded-full">-</button>
-                        <span class="mx-2 text-white">2</span>
-                        <button class="w-6 h-6 bg-light text-white rounded-full">+</button>
-                        <span class="ml-4 font-medium text-primary">$11.98</span>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-4 flex justify-between items-center">
-                <div>
-                    <h3 class="font-bold text-white">Total</h3>
-                    <p class="text-sm text-gray-400">Including tax</p>
-                </div>
-                <span class="text-xl font-bold text-primary">$32.47</span>
-            </div>
-            <button class="w-full mt-6 bg-primary text-white py-3 rounded-lg hover:bg-red-700 font-bold transition duration-300">
-                <i class="fas fa-check-circle mr-2"></i>Checkout
             </button>
         </div>
     </div>
-    <!-- Shopping Cart Sidebar (Hidden by default) -->
-    <div class="fixed top-0 right-0 w-96 h-full bg-dark text-white shadow-2xl transform transition-transform translate-x-full z-50">
-        <div class="p-6 h-full flex flex-col">
-            <div class="flex justify-between items-center mb-8">
-                <h2 class="text-2xl font-bold">Your Cart</h2>
-                <button class="text-gray-400 hover:text-white">
-                    <i class="fas fa-times text-2xl"></i>
-                </button>
+</div>
+
+<!-- Enhanced Shopping Cart Sidebar -->
+<div id="cart-sidebar" class="fixed top-0 right-0 w-96 h-full bg-gray-800 text-white shadow-2xl transform transition-transform duration-500 translate-x-full z-50 border-l border-gray-700">
+    <div class="p-6 h-full flex flex-col">
+        <!-- Cart Header -->
+        <div class="flex justify-between items-center mb-8">
+            <div>
+                <h2 class="text-2xl font-bold">Your Order</h2>
+                <p class="text-gray-400 text-sm">Items ready for checkout</p>
             </div>
-            
-            <div class="flex-grow overflow-y-auto">
-                <!-- Cart Item 1 -->
-                <div class="flex justify-between items-center mb-6 pb-6 border-b border-gray-700">
-                    <div class="flex items-center">
-                        <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80" alt="Burger" class="w-16 h-16 object-cover rounded">
-                        <div class="ml-4">
-                            <h3 class="font-bold">Gourmet Burger</h3>
-                            <p class="text-gray-400">$14.99</p>
+            <button id="close-cart" class="text-gray-400 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-700">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+        </div>
+        
+        <!-- Cart Items -->
+        <div class="flex-grow overflow-y-auto space-y-4">
+            <!-- Cart Item 1 -->
+            <div class="bg-gray-700/50 rounded-2xl p-4 backdrop-blur-sm">
+                <div class="flex justify-between items-start mb-3">
+                    <div class="flex items-center space-x-3">
+                        <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" 
+                             alt="Grilled Salmon" 
+                             class="w-16 h-16 object-cover rounded-xl">
+                        <div>
+                            <h3 class="font-bold text-white">Atlantic Grilled Salmon</h3>
+                            <p class="text-gray-400 text-sm">Main Course</p>
                         </div>
                     </div>
-                    <div class="flex items-center">
-                        <button class="w-8 h-8 bg-gray-700 text-white rounded-full">-</button>
-                        <span class="mx-2">1</span>
-                        <button class="w-8 h-8 bg-gray-700 text-white rounded-full">+</button>
-                    </div>
+                    <span class="font-bold text-primary">$18.99</span>
                 </div>
-                
-                <!-- Cart Item 2 -->
-                <div class="flex justify-between items-center mb-6 pb-6 border-b border-gray-700">
-                    <div class="flex items-center">
-                        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" alt="Pizza" class="w-16 h-16 object-cover rounded">
-                        <div class="ml-4">
-                            <h3 class="font-bold">Margherita Pizza</h3>
-                            <p class="text-gray-400">$12.99</p>
-                        </div>
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-2">
+                        <button class="quantity-btn w-8 h-8 bg-gray-600 text-white rounded-full hover:bg-gray-500 transition-colors">-</button>
+                        <span class="text-white font-medium w-8 text-center">1</span>
+                        <button class="quantity-btn w-8 h-8 bg-gray-600 text-white rounded-full hover:bg-gray-500 transition-colors">+</button>
                     </div>
-                    <div class="flex items-center">
-                        <button class="w-8 h-8 bg-gray-700 text-white rounded-full">-</button>
-                        <span class="mx-2">2</span>
-                        <button class="w-8 h-8 bg-gray-700 text-white rounded-full">+</button>
-                    </div>
+                    <button class="text-red-400 hover:text-red-300 transition-colors">
+                        <i class="fas fa-trash"></i>
+                    </button>
                 </div>
             </div>
             
-            <div class="border-t border-gray-700 pt-6">
-                <div class="flex justify-between mb-4">
-                    <span class="text-gray-400">Subtotal</span>
-                    <span class="font-bold">$40.97</span>
+            <!-- Cart Item 2 -->
+            <div class="bg-gray-700/50 rounded-2xl p-4 backdrop-blur-sm">
+                <div class="flex justify-between items-start mb-3">
+                    <div class="flex items-center space-x-3">
+                        <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80" 
+                             alt="Garlic Bread" 
+                             class="w-16 h-16 object-cover rounded-xl">
+                        <div>
+                            <h3 class="font-bold text-white">Garlic Bread Supreme</h3>
+                            <p class="text-gray-400 text-sm">Starter</p>
+                        </div>
+                    </div>
+                    <span class="font-bold text-primary">$5.99</span>
                 </div>
-                <div class="flex justify-between mb-4">
-                    <span class="text-gray-400">Tax</span>
-                    <span class="font-bold">$3.28</span>
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-2">
+                        <button class="quantity-btn w-8 h-8 bg-gray-600 text-white rounded-full hover:bg-gray-500 transition-colors">-</button>
+                        <span class="text-white font-medium w-8 text-center">2</span>
+                        <button class="quantity-btn w-8 h-8 bg-gray-600 text-white rounded-full hover:bg-gray-500 transition-colors">+</button>
+                    </div>
+                    <button class="text-red-400 hover:text-red-300 transition-colors">
+                        <i class="fas fa-trash"></i>
+                    </button>
                 </div>
-                <div class="flex justify-between mb-6 text-lg">
-                    <span class="font-bold">Total</span>
-                    <span class="font-bold text-primary">$44.25</span>
-                </div>
-                <button class="w-full bg-primary text-white py-3 rounded-lg hover:bg-red-700 font-bold">
-                    Checkout
-                </button>
             </div>
         </div>
+        
+        <!-- Cart Summary -->
+        <div class="border-t border-gray-700 pt-6 space-y-4">
+            <div class="flex justify-between text-gray-400">
+                <span>Subtotal</span>
+                <span>$30.97</span>
+            </div>
+            <div class="flex justify-between text-gray-400">
+                <span>Tax (8.5%)</span>
+                <span>$2.63</span>
+            </div>
+            <div class="flex justify-between text-lg font-bold text-white pt-4 border-t border-gray-700">
+                <span>Total</span>
+                <span class="text-primary">$33.60</span>
+            </div>
+            <button class="w-full bg-gradient-to-r from-primary to-secondary text-white py-4 rounded-2xl font-bold hover:shadow-lg transition-all duration-300 transform hover:scale-105 mt-4">
+                <i class="fas fa-credit-card mr-2"></i>Proceed to Checkout
+            </button>
+        </div>
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Category filtering
-            const categoryButtons = document.querySelectorAll('.category-btn');
-            const categorySections = document.querySelectorAll('.category-section');
-            
-            categoryButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const category = this.getAttribute('data-category');
-                    
-                    // Update active button
-                    categoryButtons.forEach(btn => {
-                        btn.classList.remove('active', 'bg-primary', 'text-white');
-                        btn.classList.add('bg-card', 'text-gray-300', 'hover:bg-light');
-                    });
-                    this.classList.add('active', 'bg-primary', 'text-white');
-                    this.classList.remove('bg-card', 'text-gray-300', 'hover:bg-light');
-                    
-                    // Show all if "all" is selected
-                    if (category === 'all') {
-                        categorySections.forEach(section => section.style.display = 'block');
-                    } else {
-                        // Hide all sections first
-                        categorySections.forEach(section => section.style.display = 'none');
-                        
-                        // Show only the selected category
-                        document.querySelector(`.category-section[data-category="${category}"]`).style.display = 'block';
-                    }
-                });
-            });
-            
-            // Add to cart functionality
-            const addButtons = document.querySelectorAll('.add-btn');
-            addButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const itemElement = this.closest('.menu-item');
-                    const itemName = itemElement.querySelector('h3').textContent;
-                    
-                    // Animation effect
-                    this.innerHTML = '<i class="fas fa-check"></i>';
-                    this.classList.add('bg-green-600');
-                    setTimeout(() => {
-                        this.innerHTML = 'Add +';
-                        this.classList.remove('bg-green-600');
-                    }, 1000);
-                    
-                    alert(`${itemName} added to cart!`);
-                });
-            });
-            
-            // Search functionality
-            const searchInput = document.querySelector('input[type="text"]');
-            searchInput.addEventListener('keyup', function() {
-                const searchTerm = this.value.toLowerCase();
-                const menuItems = document.querySelectorAll('.menu-item');
+</div>
+
+<!-- Backdrop -->
+<div id="backdrop" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+
+<style>
+    /* Custom animations */
+    @keyframes slideIn {
+        from { transform: translateX(100%); }
+        to { transform: translateX(0); }
+    }
+    
+    @keyframes slideOut {
+        from { transform: translateX(0); }
+        to { transform: translateX(100%); }
+    }
+    
+    .cart-open {
+        animation: slideIn 0.5s ease-out forwards;
+    }
+    
+    .cart-closed {
+        animation: slideOut 0.5s ease-out forwards;
+    }
+    
+    /* Smooth transitions */
+    .menu-card {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .category-filter {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Category filtering
+        const categoryFilters = document.querySelectorAll('.category-filter');
+        const categorySections = document.querySelectorAll('.category-section');
+        
+        categoryFilters.forEach(filter => {
+            filter.addEventListener('click', function() {
+                const category = this.getAttribute('data-category');
                 
-                menuItems.forEach(item => {
-                    const itemName = item.querySelector('h3').textContent.toLowerCase();
-                    const itemDescription = item.querySelector('p').textContent.toLowerCase();
-                    
-                    if (itemName.includes(searchTerm) || itemDescription.includes(searchTerm)) {
-                        item.style.display = 'flex';
-                    } else {
-                        item.style.display = 'none';
-                    }
+                // Update active filter
+                categoryFilters.forEach(f => {
+                    f.classList.remove('active', 'bg-gradient-to-r', 'from-primary', 'to-secondary', 'text-white');
+                    f.classList.add('bg-gray-800', 'text-gray-300', 'hover:bg-gray-700');
                 });
+                this.classList.add('active', 'bg-gradient-to-r', 'from-primary', 'to-secondary', 'text-white');
+                this.classList.remove('bg-gray-800', 'text-gray-300', 'hover:bg-gray-700');
+                
+                // Show all if "all" is selected
+                if (category === 'all') {
+                    categorySections.forEach(section => {
+                        section.style.display = 'block';
+                        setTimeout(() => section.style.opacity = '1', 50);
+                    });
+                } else {
+                    // Hide all sections first
+                    categorySections.forEach(section => {
+                        section.style.opacity = '0';
+                        setTimeout(() => section.style.display = 'none', 300);
+                    });
+                    
+                    // Show only the selected category
+                    const targetSection = document.querySelector(`.category-section[data-category="${category}"]`);
+                    setTimeout(() => {
+                        targetSection.style.display = 'block';
+                        setTimeout(() => targetSection.style.opacity = '1', 50);
+                    }, 300);
+                }
             });
         });
-    </script>
+        
+        // Add to cart functionality
+        const addToCartBtns = document.querySelectorAll('.add-to-cart-btn');
+        const cartCount = document.querySelector('.cart-count');
+        let itemCount = 2; // Initial count
+        
+        addToCartBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const card = this.closest('.menu-card');
+                const itemName = card.querySelector('h3').textContent;
+                const itemPrice = card.querySelector('.bg-primary').textContent;
+                
+                // Animation effect
+                const originalHTML = this.innerHTML;
+                this.innerHTML = '<i class="fas fa-check"></i> Added!';
+                this.classList.add('bg-green-600');
+                
+                // Update cart count
+                itemCount++;
+                cartCount.textContent = itemCount;
+                cartCount.classList.add('animate-ping');
+                setTimeout(() => cartCount.classList.remove('animate-ping'), 600);
+                
+                setTimeout(() => {
+                    this.innerHTML = originalHTML;
+                    this.classList.remove('bg-green-600');
+                }, 2000);
+                
+                // Show cart sidebar
+                showCartSidebar();
+            });
+        });
+        
+        // Cart sidebar functionality
+        const cartSidebar = document.getElementById('cart-sidebar');
+        const cartToggle = document.getElementById('cart-toggle');
+        const closeCart = document.getElementById('close-cart');
+        const backdrop = document.getElementById('backdrop');
+        
+        function showCartSidebar() {
+            cartSidebar.classList.remove('translate-x-full');
+            cartSidebar.classList.add('cart-open');
+            backdrop.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function hideCartSidebar() {
+            cartSidebar.classList.add('translate-x-full');
+            cartSidebar.classList.remove('cart-open');
+            backdrop.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+        
+        cartToggle.addEventListener('click', showCartSidebar);
+        closeCart.addEventListener('click', hideCartSidebar);
+        backdrop.addEventListener('click', hideCartSidebar);
+        
+        // Search functionality
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('keyup', function() {
+            const searchTerm = this.value.toLowerCase();
+            const menuCards = document.querySelectorAll('.menu-card');
+            
+            menuCards.forEach(card => {
+                const itemName = card.querySelector('h3').textContent.toLowerCase();
+                const itemDescription = card.querySelector('p').textContent.toLowerCase();
+                
+                if (itemName.includes(searchTerm) || itemDescription.includes(searchTerm)) {
+                    card.style.display = 'block';
+                    setTimeout(() => card.style.opacity = '1', 50);
+                } else {
+                    card.style.opacity = '0';
+                    setTimeout(() => card.style.display = 'none', 300);
+                }
+            });
+        });
+        
+        // Quantity buttons in cart
+        const quantityBtns = document.querySelectorAll('.quantity-btn');
+        quantityBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const quantitySpan = this.parentElement.querySelector('span');
+                let quantity = parseInt(quantitySpan.textContent);
+                
+                if (this.textContent === '+' && quantity < 10) {
+                    quantity++;
+                } else if (this.textContent === '-' && quantity > 1) {
+                    quantity--;
+                }
+                
+                quantitySpan.textContent = quantity;
+                
+                // Update total price (simplified)
+                updateCartTotal();
+            });
+        });
+        
+        function updateCartTotal() {
+            // In a real app, you would recalculate the total based on quantities
+            console.log('Cart total updated');
+        }
+    });
+</script>
 {% endblock content %}
