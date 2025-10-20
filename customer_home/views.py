@@ -22,6 +22,9 @@ def contact(request):
     return render(request, 'customer/contact.html')
 
 
+
+
+
 def book_table(request):
 
     return render(request, 'customer/book_table.html')
