@@ -1,0 +1,196 @@
+{% extends 'base/dashboard.html' %}
+{% block dashboard %}
+<div class="ml-64 min-h-screen bg-gray-900 text-gray-100 p-8 transition-all duration-300">
+    <!-- Header Section -->
+    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-8">
+        <div>
+            <h1 class="text-3xl font-bold text-white mb-1">Menu Management</h1>
+            <p class="text-gray-400">Manage and customize your restaurant's menu offerings.</p>
+        </div>
+        <div class="flex space-x-3 mt-4 sm:mt-0">
+            <button class="flex items-center bg-gray-800 text-gray-100 border border-gray-700 px-4 py-2.5 rounded-lg shadow-sm hover:bg-gray-700 hover:shadow-md transition-all duration-200">
+                <i class="fas fa-file-export mr-2"></i> Export Menu
+            </button>
+            <button class="flex items-center bg-gradient-to-r from-primary to-accent text-white px-5 py-2.5 rounded-lg shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-200">
+                <i class="fas fa-plus mr-2"></i> Add New Dish
+            </button>
+        </div>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+        <div class="bg-gray-800 rounded-xl shadow-md p-5 flex items-center border border-gray-700">
+            <div class="rounded-full bg-blue-900/40 p-3 mr-4">
+                <i class="fas fa-utensils text-blue-400 text-xl"></i>
+            </div>
+            <div>
+                <p class="text-gray-400 text-sm">Total Dishes</p>
+                <h3 class="text-2xl font-bold text-white">{{total_dishes}}</h3>
+            </div>
+        </div>
+        <div class="bg-gray-800 rounded-xl shadow-md p-5 flex items-center border border-gray-700">
+            <div class="rounded-full bg-green-900/40 p-3 mr-4">
+                <i class="fas fa-check-circle text-green-400 text-xl"></i>
+            </div>
+            <div>
+                <p class="text-gray-400 text-sm">Available</p>
+                <h3 class="text-2xl font-bold text-white">36</h3>
+            </div>
+        </div>
+        <div class="bg-gray-800 rounded-xl shadow-md p-5 flex items-center border border-gray-700">
+            <div class="rounded-full bg-yellow-900/40 p-3 mr-4">
+                <i class="fas fa-exclamation-circle text-yellow-400 text-xl"></i>
+            </div>
+            <div>
+                <p class="text-gray-400 text-sm">Out of Stock</p>
+                <h3 class="text-2xl font-bold text-white">6</h3>
+            </div>
+        </div>
+        <div class="bg-gray-800 rounded-xl shadow-md p-5 flex items-center border border-gray-700">
+            <div class="rounded-full bg-purple-900/40 p-3 mr-4">
+                <i class="fas fa-tags text-purple-400 text-xl"></i>
+            </div>
+            <div>
+                <p class="text-gray-400 text-sm">Categories</p>
+                <h3 class="text-2xl font-bold text-white">8</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search & Filter Bar -->
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between bg-gray-800 rounded-xl border border-gray-700 shadow-sm p-4 mb-8">
+        <div class="relative w-full md:w-1/2 mb-3 md:mb-0">
+            <i class="fas fa-search absolute left-3 top-3.5 text-gray-500"></i>
+            <input
+                type="text"
+                placeholder="Search dishes..."
+                class="w-full pl-10 pr-4 py-2.5 border border-gray-700 bg-gray-900 text-gray-100 placeholder-gray-500 rounded-lg focus:ring-2 focus:ring-primary focus:outline-none"
+            />
+        </div>
+        <div class="flex space-x-3">
+            <select class="border border-gray-700 bg-gray-900 rounded-lg px-3 py-2.5 text-gray-100 focus:ring-2 focus:ring-primary focus:outline-none">
+                <option>All Categories</option>
+                <option>Starters</option>
+                <option>Main Course</option>
+                <option>Desserts</option>
+                <option>Beverages</option>
+            </select>
+            <select class="border border-gray-700 bg-gray-900 rounded-lg px-3 py-2.5 text-gray-100 focus:ring-2 focus:ring-primary focus:outline-none">
+                <option>All Status</option>
+                <option>Available</option>
+                <option>Out of Stock</option>
+            </select>
+            <button class="flex items-center bg-gray-800 text-gray-100 border border-gray-700 px-4 py-2.5 rounded-lg shadow-sm hover:bg-gray-700 hover:shadow-md transition-all duration-200">
+                <i class="fas fa-filter mr-2"></i> Filter
+            </button>
+        </div>
+    </div>
+
+    <!-- View Toggle & Sort Options -->
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
+        <div class="flex items-center space-x-2 mb-3 sm:mb-0">
+            <span class="text-gray-400">View:</span>
+            <button class="p-2 bg-primary text-white rounded-lg">
+                <i class="fas fa-th-large"></i>
+            </button>
+            <button class="p-2 bg-gray-700 text-gray-300 rounded-lg hover:bg-gray-600">
+                <i class="fas fa-list"></i>
+            </button>
+        </div>
+        <div class="flex items-center space-x-2">
+            <span class="text-gray-400">Sort by:</span>
+            <select class="border border-gray-700 bg-gray-900 rounded-lg px-3 py-2 text-gray-100 focus:ring-2 focus:ring-primary focus:outline-none">
+                <option>Newest First</option>
+                <option>Price: Low to High</option>
+                <option>Price: High to Low</option>
+                <option>Name A-Z</option>
+                <option>Name Z-A</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Menu Items Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        {% for menu in offline_menus %}
+        <div class="bg-gray-800 rounded-xl shadow-md hover:shadow-lg overflow-hidden transition-all duration-300 group border border-gray-700">
+            <div class="relative">
+                <img src="{{ menu.food_image.url }}" alt="{{ menu.food_name }}"
+                     class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-300">
+                {% if menu.is_available %}
+                <span class="absolute top-3 left-3 bg-green-500 text-white text-xs font-medium px-2 py-1 rounded-full shadow">
+                    Available
+                </span>
+                {% else %}
+                <span class="absolute top-3 left-3 bg-yellow-500 text-white text-xs font-medium px-2 py-1 rounded-full shadow">
+                    Out of Stock
+                </span>
+                {% endif %}
+                <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <button class="bg-gray-900/80 hover:bg-gray-900 rounded-full p-2 shadow text-gray-200 mr-2">
+                        <i class="fas fa-edit text-sm"></i>
+                    </button>
+                    <button class="bg-gray-900/80 hover:bg-gray-900 rounded-full p-2 shadow text-gray-200">
+                        <i class="fas fa-trash text-sm"></i>
+                    </button>
+                </div>
+                <div class="absolute bottom-3 right-3">
+                    <span class="bg-black/70 text-white text-xs font-medium px-2 py-1 rounded-full">
+                        <i class="fas fa-star text-yellow-400 mr-1"></i>4.8
+                    </span>
+                </div>
+            </div>
+            <div class="p-4">
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="text-lg font-semibold text-white">{{ menu.food_name }}</h3>
+                    <span class="text-xs bg-blue-900/40 text-blue-300 px-2 py-1 rounded-full">Popular</span>
+                </div>
+                <p class="text-gray-400 text-sm mb-3">{{ menu.food_description }}</p>
+
+                <div class="flex items-center justify-between">
+                    <span class="text-2xl font-bold text-primary">{{ menu.food_price }}</span>
+                    <div class="flex space-x-2">
+                        <button class="p-2 bg-gray-700 rounded-full text-secondary hover:bg-secondary hover:text-white transition">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="p-2 bg-gray-700 rounded-full text-red-400 hover:bg-red-500 hover:text-white transition">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                        <button class="p-2 bg-gray-700 rounded-full text-green-400 hover:bg-green-500 hover:text-white transition">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+        <!-- Add New Card -->
+        <div class="bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl border-2 border-dashed border-primary/30 flex flex-col items-center justify-center p-8 text-center hover:shadow-lg transition-all duration-300 cursor-pointer group">
+            <div class="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mb-4 group-hover:bg-primary/30 transition-colors">
+                <i class="fas fa-plus text-2xl text-primary"></i>
+            </div>
+            <h3 class="text-lg font-semibold text-white mb-2">Add New Dish</h3>
+            <p class="text-gray-400 text-sm">Create a new menu item</p>
+        </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="flex justify-center mt-12">
+        <div class="flex items-center space-x-2 bg-gray-800 rounded-xl border border-gray-700 shadow-sm p-2">
+            <button class="p-2 rounded-lg hover:bg-gray-700 text-gray-300">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="w-10 h-10 rounded-lg bg-primary text-white font-medium">1</button>
+            <button class="w-10 h-10 rounded-lg hover:bg-gray-700 text-gray-300 font-medium">2</button>
+            <button class="w-10 h-10 rounded-lg hover:bg-gray-700 text-gray-300 font-medium">3</button>
+            <button class="p-2 rounded-lg hover:bg-gray-700 text-gray-300">
+                <i class="fas fa-ellipsis-h"></i>
+            </button>
+            <button class="w-10 h-10 rounded-lg hover:bg-gray-700 text-gray-300 font-medium">8</button>
+            <button class="p-2 rounded-lg hover:bg-gray-700 text-gray-300">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+</div>
+{% endblock dashboard %}
