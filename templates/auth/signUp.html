@@ -1,0 +1,281 @@
+{% extends 'base/customer_ui.html' %}
+{% block content %}
+<div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-md w-full bg-white p-8 rounded-2xl shadow-xl">
+    <div class="text-center mb-8">
+      <h2 class="text-3xl font-extrabold text-gray-900">
+        Create your account
+      </h2>
+      <p class="mt-2 text-sm text-gray-600">
+        Already have an account?
+        <a href="{% url 'login' %}" class="font-medium text-blue-600 hover:text-blue-500 transition duration-150">
+          Sign in
+        </a>
+      </p>
+    </div>
+
+    <form class="space-y-6" action="{% url 'signUp' %}" method="post">
+      {% csrf_token %}
+      
+      <!-- Full Name -->
+      <div>
+        <label for="full_name" class="block text-sm font-medium text-gray-700 mb-2">
+          Full Name
+        </label>
+        <div class="relative">
+          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <input id="full_name" name="full_name" type="text" autocomplete="name" required
+                 class="appearance-none rounded-lg relative block w-full pl-10 px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm transition duration-150"
+                 placeholder="John Doe">
+        </div>
+      </div>
+
+      <!-- Email Address -->
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+          Email Address
+        </label>
+        <div class="relative">
+          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+              <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+            </svg>
+          </div>
+          <input id="email" name="email" type="email" autocomplete="email" required
+                 class="appearance-none rounded-lg relative block w-full pl-10 px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm transition duration-150"
+                 placeholder="you@example.com">
+        </div>
+      </div>
+
+      <!-- Phone Number -->
+      <div>
+        <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">
+          Phone Number
+        </label>
+        <div class="relative">
+          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+            </svg>
+          </div>
+          <input id="phone" name="phone" type="tel" autocomplete="tel" required
+                 class="appearance-none rounded-lg relative block w-full pl-10 px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm transition duration-150"
+                 placeholder="+1 (555) 123-4567">
+        </div>
+        <p class="mt-1 text-xs text-gray-500">We'll only use this for important account notifications</p>
+      </div>
+
+      <!-- Password -->
+      <div>
+        <label for="password" class="block text-sm font-medium text-gray-700 mb-2">
+          Password
+        </label>
+        <div class="relative">
+          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <input id="password" name="password" type="password" autocomplete="new-password" required
+                 class="appearance-none rounded-lg relative block w-full pl-10 px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm transition duration-150"
+                 placeholder="••••••••">
+        </div>
+        <div class="mt-2">
+          <p class="text-xs text-gray-500">Password must contain:</p>
+          <ul class="text-xs text-gray-500 mt-1 space-y-1">
+            <li class="flex items-center">
+              <span class="password-requirement" id="length">✓</span>
+              <span>At least 8 characters</span>
+            </li>
+            <li class="flex items-center">
+              <span class="password-requirement" id="uppercase">✓</span>
+              <span>One uppercase letter</span>
+            </li>
+            <li class="flex items-center">
+              <span class="password-requirement" id="number">✓</span>
+              <span>One number</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Confirm Password -->
+      <div>
+        <label for="confirm_password" class="block text-sm font-medium text-gray-700 mb-2">
+          Confirm Password
+        </label>
+        <div class="relative">
+          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <input id="confirm_password" name="confirm_password" type="password" autocomplete="new-password" required
+                 class="appearance-none rounded-lg relative block w-full pl-10 px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm transition duration-150"
+                 placeholder="••••••••">
+        </div>
+        <p id="password-match" class="mt-1 text-xs text-green-600 hidden">✓ Passwords match</p>
+        <p id="password-mismatch" class="mt-1 text-xs text-red-600 hidden">✗ Passwords do not match</p>
+      </div>
+
+      <!-- Terms and Conditions -->
+      <div class="flex items-start">
+        <div class="flex items-center h-5">
+          <input id="terms" name="terms" type="checkbox" required
+                 class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded">
+        </div>
+        <div class="ml-3">
+          <label for="terms" class="text-sm text-gray-700">
+            I agree to the
+            <a href="#" class="font-medium text-blue-600 hover:text-blue-500">Terms of Service</a>
+            and
+            <a href="#" class="font-medium text-blue-600 hover:text-blue-500">Privacy Policy</a>
+          </label>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div>
+        <button type="submit"
+                class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-150 transform hover:-translate-y-0.5 active:translate-y-0">
+          <span class="absolute left-0 inset-y-0 flex items-center pl-3">
+            <svg class="h-5 w-5 text-blue-500 group-hover:text-blue-400 transition duration-150" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+            </svg>
+          </span>
+          Create Account
+        </button>
+      </div>
+    </form>
+
+    <!-- Social Signup (Optional) -->
+    <div class="mt-6">
+      <div class="relative">
+        <div class="absolute inset-0 flex items-center">
+          <div class="w-full border-t border-gray-300"></div>
+        </div>
+        <div class="relative flex justify-center text-sm">
+          <span class="px-2 bg-white text-gray-500">Or continue with</span>
+        </div>
+      </div>
+
+      <div class="mt-6 grid grid-cols-2 gap-3">
+        <a href="#" class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-lg shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 transition duration-150">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M20.283 10.356h-8.327v3.451h4.792c-.446 2.193-2.313 3.453-4.792 3.453a5.27 5.27 0 0 1-5.279-5.28 5.27 5.27 0 0 1 5.279-5.279c1.259 0 2.397.447 3.29 1.178l2.6-2.599c-1.584-1.381-3.615-2.233-5.89-2.233a8.908 8.908 0 0 0-8.934 8.934 8.907 8.907 0 0 0 8.934 8.934c4.467 0 8.529-3.249 8.529-8.934 0-.528-.081-1.097-.202-1.625z"/>
+          </svg>
+          <span class="ml-2">Google</span>
+        </a>
+        <a href="#" class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-lg shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 transition duration-150">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+          <span class="ml-2">GitHub</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Error Messages -->
+    {% if messages %}
+    <div class="mt-6">
+      {% for message in messages %}
+      <div class="rounded-md bg-red-50 p-4">
+        <div class="flex">
+          <div class="flex-shrink-0">
+            <svg class="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <div class="ml-3">
+            <p class="text-sm font-medium text-red-800">{{ message }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+<script>
+// Password match validation
+document.addEventListener('DOMContentLoaded', function() {
+  const password = document.getElementById('password');
+  const confirmPassword = document.getElementById('confirm_password');
+  const matchMessage = document.getElementById('password-match');
+  const mismatchMessage = document.getElementById('password-mismatch');
+
+  function checkPasswordMatch() {
+    if (password.value === '' && confirmPassword.value === '') {
+      matchMessage.classList.add('hidden');
+      mismatchMessage.classList.add('hidden');
+    } else if (password.value === confirmPassword.value) {
+      matchMessage.classList.remove('hidden');
+      mismatchMessage.classList.add('hidden');
+    } else {
+      matchMessage.classList.add('hidden');
+      mismatchMessage.classList.remove('hidden');
+    }
+  }
+
+  password.addEventListener('input', checkPasswordMatch);
+  confirmPassword.addEventListener('input', checkPasswordMatch);
+
+  // Password strength indicator (optional enhancement)
+  const requirements = {
+    length: document.getElementById('length'),
+    uppercase: document.getElementById('uppercase'),
+    number: document.getElementById('number')
+  };
+
+  function checkPasswordStrength() {
+    const value = password.value;
+    
+    // Check length
+    if (value.length >= 8) {
+      requirements.length.innerHTML = '✓';
+      requirements.length.className = 'password-requirement text-green-500 mr-1';
+    } else {
+      requirements.length.innerHTML = '✗';
+      requirements.length.className = 'password-requirement text-red-500 mr-1';
+    }
+
+    // Check uppercase
+    if (/[A-Z]/.test(value)) {
+      requirements.uppercase.innerHTML = '✓';
+      requirements.uppercase.className = 'password-requirement text-green-500 mr-1';
+    } else {
+      requirements.uppercase.innerHTML = '✗';
+      requirements.uppercase.className = 'password-requirement text-red-500 mr-1';
+    }
+
+    // Check number
+    if (/[0-9]/.test(value)) {
+      requirements.number.innerHTML = '✓';
+      requirements.number.className = 'password-requirement text-green-500 mr-1';
+    } else {
+      requirements.number.innerHTML = '✗';
+      requirements.number.className = 'password-requirement text-red-500 mr-1';
+    }
+  }
+
+  password.addEventListener('input', checkPasswordStrength);
+});
+</script>
+
+<style>
+.password-requirement {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  text-align: center;
+  line-height: 16px;
+  margin-right: 4px;
+}
+</style>
+{% endblock content %}
