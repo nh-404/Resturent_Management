@@ -7,10 +7,8 @@
         Sign in to your account
       </h2>
       <p class="mt-2 text-center text-sm text-gray-600">
-        Or
-        <a href="{% url 'signUp' %}" class="font-medium text-blue-600 hover:text-blue-500 transition duration-150">
-          become a member
-        </a>
+        
+          {{error}}
       </p>
     </div>
     
@@ -62,7 +60,7 @@
         </div>
 
         <div class="text-sm">
-          <a href="#" class="font-medium text-blue-600 hover:text-blue-500 transition duration-150">
+          <a href="{% url 'reset_password' %}" class="font-medium text-blue-600 hover:text-blue-500 transition duration-150">
             Forgot your password?
           </a>
         </div>
