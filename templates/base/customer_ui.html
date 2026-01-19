@@ -64,6 +64,24 @@
 
                     {% if user.is_authenticated %}
 
+                                                <!-- Profile Icon -->
+                    <a href="{% url 'profile' %}" 
+                    class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-700 hover:bg-gray-600 overflow-hidden">
+
+                        {% if user.user_profile.image %}
+                            <img 
+                                src="{{ user.user_profile.image.url }}" 
+                                alt="Profile Photo" 
+                                class="w-full h-full object-cover rounded-full"
+                            >
+                        {% else %}
+                            <i class="fas fa-user text-white"></i>
+                        {% endif %}
+
+                    </a>
+
+
+
                     <a href="{% url 'logout' %}">
                         <button class="bg-green-700 text-white px-4 py-2 rounded-full">
                         <i class="fas fa-sign-out mr-2"></i>Logout</button>

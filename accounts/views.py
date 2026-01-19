@@ -213,3 +213,25 @@ def reset_password_confirm(request, uidb64, token):
     return render(request,'auth/reset_password/reset_password_confirm.html',{'errors': errors, 'uidb64': uidb64, 'token': token})
 
 
+
+def user_profile(request):
+
+     # Render template with errors if any
+    return render(request,'auth/profile.html')
+
+
+
+def edit_profile(request):
+
+     # Render template with errors if any
+    return render(request,'auth/edit_profile.html')
+
+
+
+def change_password(request):
+
+     # Render template with errors if any
+    return render(request,'auth/change_password.html')
+
+
+

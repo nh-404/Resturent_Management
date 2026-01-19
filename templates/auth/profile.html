@@ -1,0 +1,122 @@
+{% extends 'base/customer_ui.html' %}
+{% load static %}
+
+{% block content %}
+<div class="content-wrapper py-12">
+    <div class="container mx-auto px-4 max-w-4xl">
+
+        <!-- Profile Card -->
+        <div class="card p-8">
+            <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
+
+                <!-- Profile Avatar -->
+                <div class="flex-shrink-0">
+                    <div class="w-32 h-32 rounded-full bg-gray-700 flex items-center justify-center overflow-hidden">
+
+                        {% if user.user_profile.image %}
+                            <img 
+                                src="{{ user.user_profile.image.url }}" 
+                                alt="Profile Photo" 
+                                class="w-full h-full object-cover"
+                            >
+                        {% else %}
+                            <i class="fas fa-user text-5xl text-white"></i>
+                        {% endif %}
+
+                    </div>
+                </div>
+
+                <!-- Profile Info -->
+                <div class="flex-1 w-full">
+                    <h2 class="text-2xl font-bold text-primary mb-2">
+                        {{ user.get_full_name|default:user.full_name }}
+                    </h2>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm mb-4">
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <p class="text-gray-400">Email</p>
+                            <p class="font-medium text-white">{{ user.email }}</p>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <p class="text-gray-400">Phone</p>
+                            <p class="font-medium text-white">{{ user.phone }}</p>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <p class="text-gray-400">Address</p>
+                            <p class="font-medium text-white">{{ user.user_profile.address }}</p>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <p class="text-gray-400">Last Login</p>
+                            <p class="font-medium text-white">{{ user.last_login|date:"M d, Y h:i A" }}</p>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <p class="text-gray-400">Joined</p>
+                            <p class="font-medium text-white">{{ user.date_joined|date:"M d, Y h:i A" }}</p>
+                        </div>
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="mt-6 flex flex-wrap gap-4">
+                        <a href="{% url 'edit_profile' %}"
+                           class="bg-primary hover:bg-red-700 text-white px-6 py-2 rounded-full">
+                            <i class="fas fa-edit mr-2"></i>Edit Profile
+                        </a>
+
+                        <a href="{% url 'change_password' %}"
+                           class="bg-secondary hover:bg-orange-700 text-white px-6 py-2 rounded-full">
+                            <i class="fas fa-key mr-2"></i>Change Password
+                        </a>
+
+                        <a href="{% url 'logout' %}"
+                           class="bg-gray-700 hover:bg-gray-600 text-white px-6 py-2 rounded-full">
+                            <i class="fas fa-sign-out-alt mr-2"></i>Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Order History -->
+        <div class="card p-8 mt-8">
+            <h3 class="text-xl font-bold mb-6 text-accent">
+                <i class="fas fa-receipt mr-2"></i>Order History
+            </h3>
+
+            {% if orders %}
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr class="text-gray-400 border-b border-gray-700">
+                                <th class="text-left py-2">Order #</th>
+                                <th class="text-left py-2">Date</th>
+                                <th class="text-left py-2">Total</th>
+                                <th class="text-left py-2">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for order in orders %}
+                            <tr class="border-b border-gray-800 hover:bg-gray-800">
+                                <td class="py-3">#{{ order.id }}</td>
+                                <td>{{ order.created_at|date:"M d, Y" }}</td>
+                                <td>${{ order.total }}</td>
+                                <td>
+                                    <span class="px-3 py-1 rounded-full text-xs
+                                        {% if order.status == 'completed' %}bg-green-700
+                                        {% elif order.status == 'pending' %}bg-yellow-600
+                                        {% else %}bg-gray-600{% endif %}">
+                                        {{ order.status|capfirst }}
+                                    </span>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <p class="text-gray-400">You have no orders yet.</p>
+            {% endif %}
+        </div>
+
+    </div>
+</div>
+{% endblock content %}
