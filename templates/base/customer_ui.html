@@ -23,6 +23,7 @@
             }
         }
     </script>
+    
     <style>
         body {
             background-color: #0f172a; /* Dark blue background */
@@ -37,6 +38,13 @@
             background-color: #1e293b;
             border-radius: 0.5rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+                .otp-digit {
+            transition: all 0.2s ease;
+        }
+        .otp-digit:focus {
+            transform: scale(1.05);
+            box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.3);
         }
     </style>
 </head>

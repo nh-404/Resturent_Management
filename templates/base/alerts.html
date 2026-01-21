@@ -1,0 +1,47 @@
+{% if messages %}
+  <div class="mt-4 space-y-3">
+    {% for message in messages %}
+      <div class="rounded-md p-4
+        {% if message.tags == 'error' %}
+          bg-red-50
+        {% elif message.tags == 'success' %}
+          bg-green-50
+        {% elif message.tags == 'warning' %}
+          bg-yellow-50
+        {% else %}
+          bg-blue-50
+        {% endif %}
+      ">
+        <div class="flex">
+          <div class="flex-shrink-0">
+            {% if message.tags == 'error' %}
+              <!-- ❌ Error Icon -->
+              <svg class="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"/>
+              </svg>
+            {% elif message.tags == 'success' %}
+              <!-- ✅ Success Icon -->
+              <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.707a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+              </svg>
+            {% endif %}
+          </div>
+
+          <div class="ml-3">
+            <p class="text-sm font-medium
+              {% if message.tags == 'error' %}
+                text-red-800
+              {% elif message.tags == 'success' %}
+                text-green-800
+              {% else %}
+                text-gray-800
+              {% endif %}
+            ">
+              {{ message }}
+            </p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
