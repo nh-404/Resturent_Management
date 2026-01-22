@@ -1,0 +1,71 @@
+{% extends 'base/customer_ui.html' %}
+
+{% block content %}
+<div class="min-h-screen flex items-center justify-center px-4 sm:px-6">
+
+    <div class="w-full max-w-md bg-[#1e293b] rounded-xl shadow-lg p-6 sm:p-8">
+
+        <h2 class="text-xl sm:text-2xl font-semibold text-center text-white mb-4">
+            Verify Your Account
+        </h2>
+
+        <p class="text-sm text-gray-400 text-center mb-6">
+            Enter your email to receive a one-time password (OTP)
+        </p>
+
+        <!-- Django Messages -->
+        {% if messages %}
+            {% for message in messages %}
+                <div class="mb-4 px-4 py-3 rounded-md text-sm
+                    {% if message.tags == 'success' %}
+                        bg-green-900 text-green-300
+                    {% elif message.tags == 'error' %}
+                        bg-red-900 text-red-300
+                    {% else %}
+                        bg-blue-900 text-blue-300
+                    {% endif %}
+                ">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <form method="POST" class="space-y-5">
+            {% csrf_token %}
+
+            <!-- Email -->
+            <div>
+                <label class="block text-sm font-medium text-gray-300 mb-1">
+                    Email Address
+                </label>
+                <input
+                    type="email"
+                    name="email"
+                    required
+                    placeholder="you@example.com"
+                    class="w-full px-4 py-2 rounded-md bg-gray-800 border border-gray-700 text-white
+                           focus:ring-2 focus:ring-primary focus:outline-none"
+                >
+            </div>
+
+            <!-- Send OTP Button -->
+            <button
+                type="submit"
+                class="w-full bg-primary hover:bg-secondary text-white py-2.5 rounded-md
+                       font-medium transition duration-200"
+            >
+                Send OTP
+            </button>
+        </form>
+
+        <!-- Back to Login -->
+        <div class="text-center mt-6">
+            <a href="{% url 'login' %}" class="text-sm text-gray-400 hover:text-primary">
+                Back to Login
+            </a>
+        </div>
+
+    </div>
+
+</div>
+{% endblock content %}

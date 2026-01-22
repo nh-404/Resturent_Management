@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.contrib.auth.password_validation import validate_password
 from django.core.exceptions import ValidationError
 from django.template.loader import render_to_string
-from accounts.models import User, PasswordOTP
+from accounts.models import User, PasswordOTP, Profile
 from django.urls import reverse
 from django.core.mail import EmailMultiAlternatives, send_mail
 from django.contrib.auth import login, authenticate, logout
@@ -220,15 +220,25 @@ def reset_password_confirm(request, uidb64, token):
 def user_profile(request):
 
      # Render template with errors if any
-    return render(request,'auth/profile.html')
+    return render(request,'auth/profile/profile.html')
 
 
 
 @login_required(login_url='login')
-def edit_profile(request):
+def edit_profile(request, id):
+
+    # profile = Profile.objects.get(id=id)
+
+    # if request.method == 'PSOT':
+
+    #     full_name = request.POST.get('full_name') 
+    #     full_name = request.POST.get('full_name') 
+    #     full_name = request.POST.get('full_name') 
+        
 
      # Render template with errors if any
-    return render(request,'auth/edit_profile.html')
+
+    return render(request,'auth/profile/edit_profile.html')
 
 
 
@@ -238,12 +248,12 @@ def send_otp(request):
     otp = str(random.randint(100000, 999999))
 
     PasswordOTP.objects.filter(user=request.user).delete()
-    PasswordOTP.objects.create(user=request.user, otp=otp)
+    PasswordOTP.objects.update_or_create(user=request.user, otp=otp)
 
     send_mail(
         subject='Your password change OTP',
-        message='Your OTP is {otp}',
-        from_email=ettings.DEFAULT_FROM_EMAIL,
+        message=f'Your OTP is {otp}',
+        from_email= settings.DEFAULT_FROM_EMAIL,
         recipient_list=[request.user.email]
     )
 
@@ -300,9 +310,10 @@ def change_password(request):
         new_password = request.POST.get('new_password') 
         confirm_password = request.POST.get('confirm_password') 
 
+        user = request.user
 
         try:
-            otp_obj = PasswordOTP.objects.create(user=request.user, otp=otp)
+            otp_obj = PasswordOTP.objects.get(user=user, otp=otp)
 
         except PasswordOTP.DoesNotExist:
             messages.error(request,'Invalid OTP')
@@ -322,7 +333,7 @@ def change_password(request):
             messages.error(request,'New password do not matching')
             return redirect('change_password')
 
-        user = request.user
+
         user.set_password(new_password)
         user.save()
 
