@@ -1,11 +1,19 @@
 from django.shortcuts import render
-from menu.models import Offline_menu
+from menu.models import Offline_menu, Online_menu
 
 
 
 def online_menu(request):
 
-    return render(request, 'customer/order/online_order.html')
+    online_menu = Online_menu.objects.all()
+
+
+
+    context = {
+        'online_menu' : online_menu,
+    }
+
+    return render(request, 'customer/order/online_order.html', context)
 
 
 

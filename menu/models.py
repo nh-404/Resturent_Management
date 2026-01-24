@@ -5,11 +5,10 @@ User = get_user_model()
 
 
 
-
 class Food_category(models.Model):
 
     category_name = models.CharField(max_length=50, unique=True)
-    description = models.TextField(blank=True, null=True)
+    slug = models.SlugField(unique=True)
 
     def __str__(self):
         return self.category_name
@@ -17,9 +16,22 @@ class Food_category(models.Model):
 
 
 
-
 class Online_menu(models.Model):
-    pass
+    
+    category = models.ForeignKey(Food_category, on_delete=models.CASCADE)
+    food_image = models.ImageField(upload_to='menu/online_menu')
+    food_name = models.CharField( max_length=50)
+    food_details = models.TextField(null=False)
+    price = models.DecimalField( max_digits=5, decimal_places=2)
+    rating = models.FloatField()
+
+    is_special = models.BooleanField(default=False)
+    is_offer = models.BooleanField(default=False)
+    is_available = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.food_name
+    
 
 
 
