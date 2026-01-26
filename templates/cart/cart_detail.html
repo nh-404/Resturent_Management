@@ -1,0 +1,77 @@
+{% extends 'base/customer_ui.html' %}
+
+{% load static %}
+{% load cart_tags %}
+
+{% block content %}
+
+<div class="max-w-4xl mx-auto bg-white shadow-md rounded-lg p-6">
+    <h1 class="text-2xl font-bold mb-4">Your Cart</h1>
+
+    {% if cart.items.exists %}
+    <div class="overflow-x-auto">
+        <table class="min-w-full">
+            <thead class="bg-gray-200">
+                <tr>
+                    <th class="py-2 px-4 text-left">Food</th>
+                    <th class="py-2 px-4 text-left">Price</th>
+                    <th class="py-2 px-4 text-left">Quantity</th>
+                    <th class="py-2 px-4 text-left">Total</th>
+                    <th class="py-2 px-4 text-left">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in cart.items.all %}
+                <tr class="border-b">
+                    <td class="py-2 px-4">{{ item.food.food_name }}</td>
+                    <td class="py-2 px-4">${{ item.food.price|floatformat:2 }}</td>
+
+                    <td class="py-2 px-4 flex items-center gap-2">
+                        <form action="{% url 'cart_decrement' item.id %}" method="POST">
+                            {% csrf_token %}
+                            <button class="bg-gray-300 px-2 rounded">-</button>
+                        </form>
+
+                        <span>{{ item.quantity }}</span>
+
+                        <form action="{% url 'cart_increment' item.id %}" method="POST">
+                            {% csrf_token %}
+                            <button class="bg-gray-300 px-2 rounded">+</button>
+                        </form>
+                    </td>
+
+                    <td class="py-2 px-4 font-semibold">
+                        ${{ item.total_price|floatformat:2 }}
+                    </td>
+
+                    <td class="py-2 px-4">
+                        <form action="{% url 'cart_remove' item.id %}" method="POST">
+                            {% csrf_token %}
+                            <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">
+                                Remove
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="mt-6 flex justify-between items-center">
+        <div class="text-xl font-bold">
+            Subtotal: ${{ cart|cart_total|floatformat:2 }}
+        </div>
+
+        <a href="{% url 'place_order' %}"
+           class="bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600">
+            Place Order
+        </a>
+    </div>
+
+    {% else %}
+        <p class="text-gray-600">Your cart is empty.</p>
+    {% endif %}
+</div>
+
+{% endblock %}

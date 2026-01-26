@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     'customer_home',
     'dashboard',
     'menu',
+    'order',
+    'cart'
 ]
 
 REST_FRAMEWORK = {
@@ -130,6 +132,13 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+# settings.py
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.dummy.DummyCache",
+    }
+}
 
 
 # Internationalization

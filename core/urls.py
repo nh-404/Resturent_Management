@@ -13,6 +13,8 @@ urlpatterns = [
     path('menu/', include('menu.urls')),
     path('', include('customer_home.urls')),
     path('dashboard/', include('dashboard.urls')),
+    path('order/', include('order.urls')),
+    path('cart/', include('cart.urls')),
     
     # JWT endpoints
     path('api/', include('api.urls')),

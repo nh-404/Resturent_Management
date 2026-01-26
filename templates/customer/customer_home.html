@@ -1,5 +1,5 @@
 {% extends 'base/customer_ui.html' %}
-
+{% load static %}
 {% block content %}
 
 <!-- Home Section -->
@@ -56,14 +56,14 @@
                 
                 <!-- CTA Buttons -->
                 <div class="flex flex-col sm:flex-row justify-center gap-4 mb-12">
-                    <a href="{% url 'online_order' %}" 
+                    <a href="{% url 'online_menu' %}" 
                        class="group bg-white text-gray-900 px-8 py-4 rounded-2xl font-bold hover:bg-gray-100 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl flex items-center justify-center gap-3">
                         <i class="fas fa-burger text-primary group-hover:scale-110 transition-transform"></i>
                         Order Online
                         <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
                     </a>
                     
-                    <a href="{% url 'offline_order' %}" 
+                    <a href="{% url 'offline_menu' %}" 
                        class="group bg-primary/20 backdrop-blur-sm border border-primary/30 text-white px-8 py-4 rounded-2xl font-bold hover:bg-primary/30 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl flex items-center justify-center gap-3">
                         <i class="fas fa-store group-hover:scale-110 transition-transform"></i>
                         Order In-Store
@@ -105,22 +105,23 @@
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                    {% for menu in offline_menus %}
                     <!-- Item 1 -->
                     <div class="group bg-gray-800 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-4">
                         <div class="relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2080&q=80" 
-                                 alt="Fresh Salad" 
+                            <img src="{{ menu.food_image.url }}"lt="Fresh Salad" 
                                  class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700">
+
                             <div class="absolute top-4 right-4 bg-primary/90 text-white px-3 py-1 rounded-full text-sm font-bold backdrop-blur-sm">
-                                Chef's Choice
+                                {{menu.food_name}}
                             </div>
                             <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-gray-900 to-transparent p-6">
                                 <div class="flex justify-between items-end">
                                     <div>
-                                        <h3 class="text-xl font-bold text-white mb-1">Mediterranean Salad</h3>
-                                        <p class="text-gray-300 text-sm">Organic greens with feta & olives</p>
+                                        <h3 class="text-xl font-bold text-white mb-1">{{menu.food_descriprion}}</h3>
+                                       
                                     </div>
-                                    <span class="text-primary font-bold text-2xl">$9.99</span>
+                                    <span class="text-primary font-bold text-2xl">{{menu.food_price}}</span>
                                 </div>
                             </div>
                         </div>
@@ -128,7 +129,7 @@
                             <div class="flex items-center justify-between mb-4">
                                 <div class="flex items-center text-amber-400">
                                     <i class="fas fa-star"></i>
-                                    <span class="ml-1 font-semibold">4.8</span>
+                                    <span class="ml-1 font-semibold">{{menu.rating}}</span>
                                     <span class="text-gray-400 text-sm ml-1">(124)</span>
                                 </div>
                                 <button class="bg-primary text-white px-4 py-2 rounded-xl hover:bg-primary/90 transition-colors flex items-center gap-2">
@@ -137,80 +138,13 @@
                                 </button>
                             </div>
                         </div>
-                    </div>
-                    
-                    <!-- Item 2 -->
-                    <div class="group bg-gray-800 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-4">
-                        <div class="relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2081&q=80" 
-                                 alt="Creamy Pasta" 
-                                 class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700">
-                            <div class="absolute top-4 right-4 bg-secondary/90 text-white px-3 py-1 rounded-full text-sm font-bold backdrop-blur-sm">
-                                Popular
-                            </div>
-                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-gray-900 to-transparent p-6">
-                                <div class="flex justify-between items-end">
-                                    <div>
-                                        <h3 class="text-xl font-bold text-white mb-1">Truffle Pasta</h3>
-                                        <p class="text-gray-300 text-sm">Creamy pasta with wild mushrooms</p>
-                                    </div>
-                                    <span class="text-primary font-bold text-2xl">$14.99</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <div class="flex items-center justify-between mb-4">
-                                <div class="flex items-center text-amber-400">
-                                    <i class="fas fa-star"></i>
-                                    <span class="ml-1 font-semibold">4.9</span>
-                                    <span class="text-gray-400 text-sm ml-1">(89)</span>
-                                </div>
-                                <button class="bg-primary text-white px-4 py-2 rounded-xl hover:bg-primary/90 transition-colors flex items-center gap-2">
-                                    <i class="fas fa-plus"></i>
-                                    Add to Cart
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Item 3 -->
-                    <div class="group bg-gray-800 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-4">
-                        <div class="relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1982&q=80" 
-                                 alt="Chocolate Delight" 
-                                 class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700">
-                            <div class="absolute top-4 right-4 bg-accent/90 text-white px-3 py-1 rounded-full text-sm font-bold backdrop-blur-sm">
-                                Sweet Deal
-                            </div>
-                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-gray-900 to-transparent p-6">
-                                <div class="flex justify-between items-end">
-                                    <div>
-                                        <h3 class="text-xl font-bold text-white mb-1">Chocolate Symphony</h3>
-                                        <p class="text-gray-300 text-sm">Decadent triple-layer dessert</p>
-                                    </div>
-                                    <span class="text-primary font-bold text-2xl">$7.99</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <div class="flex items-center justify-between mb-4">
-                                <div class="flex items-center text-amber-400">
-                                    <i class="fas fa-star"></i>
-                                    <span class="ml-1 font-semibold">4.7</span>
-                                    <span class="text-gray-400 text-sm ml-1">(67)</span>
-                                </div>
-                                <button class="bg-primary text-white px-4 py-2 rounded-xl hover:bg-primary/90 transition-colors flex items-center gap-2">
-                                    <i class="fas fa-plus"></i>
-                                    Add to Cart
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                    </div> {% endfor %}
                 </div>
+               
                 
                 <!-- View All Button -->
                 <div class="text-center">
-                    <a href="#" class="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-semibold text-lg group">
+                    <a href="{% url 'menu' %}" class="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-semibold text-lg group">
                         View Full Menu
                         <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
                     </a>

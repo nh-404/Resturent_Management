@@ -1,0 +1,76 @@
+{% extends 'base/customer_ui.html' %}
+{% load static %}
+{% block content %}
+
+<section class="section py-16 bg-gray-900">
+    <div class="container mx-auto px-4">
+        <h1 class="text-4xl font-bold text-white text-center mb-12">
+            Our Menu
+        </h1>
+
+        {% if online_menu.exists %}
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {% for menu in online_menu %}
+            <div class="group bg-gray-800 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-4">
+                <div class="relative overflow-hidden">
+                    <img src="{{ menu.food_image.url }}" alt="{{ menu.food_name }}"
+                         class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700">
+
+                    <!-- Food Name Badge -->
+                    <div class="absolute top-4 left-4 bg-primary/90 text-white px-3 py-1 rounded-full text-sm font-bold backdrop-blur-sm">
+                        {{ menu.food_name }}
+                    </div>
+
+                    <!-- Price Overlay -->
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-gray-900 to-transparent p-6">
+                        <div class="flex justify-between items-end">
+                            <div>
+                                <h3 class="text-lg font-semibold text-white mb-1">{{ menu.food_details|truncatechars:50 }}</h3>
+                            </div>
+                            <span class="text-primary font-bold text-xl">${{ menu.price|floatformat:2 }}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-6">
+                    <!-- Rating & Add to Cart -->
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center text-amber-400">
+                            <i class="fas fa-star"></i>
+                            <span class="ml-1 font-semibold">{{ menu.rating }}</span>
+                        </div>
+                      <form action="{% url 'add_to_cart' menu.id %}" method="POST">
+                        {% csrf_token %}
+                        <button
+                            class="bg-primary text-white px-4 py-2 rounded-xl hover:bg-primary/90 transition-colors flex items-center gap-2">
+                            <i class="fas fa-plus"></i>
+                            Add to Cart
+                        </button>
+                    </form>
+
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Pagination -->
+        <div class="mt-12 flex justify-center">
+            {% if menus.has_previous %}
+            <a href="?page={{ menus.previous_page_number }}" class="px-4 py-2 bg-gray-700 text-white rounded-l-lg hover:bg-gray-600">Previous</a>
+            {% endif %}
+
+            <span class="px-4 py-2 bg-gray-800 text-white">{{ menus.number }}</span>
+
+            {% if menus.has_next %}
+            <a href="?page={{ menus.next_page_number }}" class="px-4 py-2 bg-gray-700 text-white rounded-r-lg hover:bg-gray-600">Next</a>
+            {% endif %}
+        </div>
+
+        {% else %}
+        <p class="text-gray-400 text-center text-lg">No menu items found.</p>
+        {% endif %}
+    </div>
+</section>
+
+{% endblock content %}
